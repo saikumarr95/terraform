@@ -30,7 +30,7 @@ stages:
             provider: 'azurerm'
             command: 'init'
             commandOptions: -backend=false
-            backendServiceArm: 'azurepipeline'
+            backendServiceArm: 'azspn-cpu-cis-fabric-corp-prod-001'
             backendAzureRmResourceGroupName: 'rg-Fabric-Corp-Terraform-001'
             backendAzureRmStorageAccountName: 'stfabtfesu'
             backendAzureRmContainerName: 'azuretfstate'
@@ -58,7 +58,7 @@ stages:
           inputs:
             provider: 'azurerm'
             command: 'init'
-            backendServiceArm: 'azurepipeline'
+            backendServiceArm: 'azspn-cpu-cis-fabric-corp-prod-001'
             backendAzureRmResourceGroupName: 'rg-Fabric-Corp-Terraform-001'
             backendAzureRmStorageAccountName: 'stfabtfesu'
             backendAzureRmContainerName: 'azuretfstate'
