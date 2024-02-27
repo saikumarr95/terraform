@@ -1,3 +1,4 @@
+/*
 #!/bin/bash
 
 ARM_TENANT_ID=""
@@ -13,3 +14,4 @@ az account show
 
 # Set subscription
 az account set --subscription $ARM_SUBSCRIPTION_ID
+*/
