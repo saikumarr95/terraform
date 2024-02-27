@@ -9,8 +9,8 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  bkstrgrg: 'voyager'
-  bkstr: 'voyagerterraformscript01'
+  bkstrgrg: 'rg-Fabric-Corp-Terraform-001'
+  bkstr: 'stfabtfesu'
   bkcontainer: 'azuretfstate'
   bkstrgkey: 'terraformpipeline.tfstate'
 
@@ -31,11 +31,11 @@ stages:
             command: 'init'
             commandOptions: -backend=false
             backendServiceArm: 'azurepipeline'
-            backendAzureRmResourceGroupName: 'voyager'
-            backendAzureRmStorageAccountName: 'voyagerterraformscript01'
+            backendAzureRmResourceGroupName: 'rg-Fabric-Corp-Terraform-001'
+            backendAzureRmStorageAccountName: 'stfabtfesu'
             backendAzureRmContainerName: 'azuretfstate'
             backendAzureRmKey: 'terraformpipeline.tfstate'
-            environmentServiceNameAzureRM: 'Visual Studio Professional Subscription(8f4ad6f9-0b2b-4dda-bc17-81ebaf1478e2)'
+            environmentServiceNameAzureRM: 'CPU-CIS-Fabric-Corp-Prod-001(8f4ad6f9-0b2b-4dda-bc17-81ebaf1478e2)'
         
         - task: TerraformTaskV4@4
           displayName: Terraform Validate
@@ -59,21 +59,21 @@ stages:
             provider: 'azurerm'
             command: 'init'
             backendServiceArm: 'azurepipeline'
-            backendAzureRmResourceGroupName: 'voyager'
-            backendAzureRmStorageAccountName: 'voyagerterraformscript01'
+            backendAzureRmResourceGroupName: 'rg-Fabric-Corp-Terraform-001'
+            backendAzureRmStorageAccountName: 'stfabtfesu'
             backendAzureRmContainerName: 'azuretfstate'
             backendAzureRmKey: 'terraformpipeline.tfstate'
-            environmentServiceNameAzureRM: 'Visual Studio Professional Subscription(8f4ad6f9-0b2b-4dda-bc17-81ebaf1478e2)'
+            environmentServiceNameAzureRM: 'CPU-CIS-Fabric-Corp-Prod-001(6bae2ad5-f444-4054-bc59-73e900e89019)'
         - task: TerraformTaskV4@4
           displayName: Terraform Plan
           inputs:
             provider: 'azurerm'
             command: 'plan'
-            environmentServiceNameAzureRM: 'Visual Studio Professional Subscription(8f4ad6f9-0b2b-4dda-bc17-81ebaf1478e2)'
+            environmentServiceNameAzureRM: 'CPU-CIS-Fabric-Corp-Prod-001(6bae2ad5-f444-4054-bc59-73e900e89019)'
         - task: TerraformTaskV4@4
           displayName: Terraform Apply
           inputs:
             provider: 'azurerm'
             command: 'apply'
-            environmentServiceNameAzureRM: 'Visual Studio Professional Subscription(1)(8f4ad6f9-0b2b-4dda-bc17-81ebaf1478e2)'
+            environmentServiceNameAzureRM: 'CPU-CIS-Fabric-Corp-Prod-001(6bae2ad5-f444-4054-bc59-73e900e89019)'
             
