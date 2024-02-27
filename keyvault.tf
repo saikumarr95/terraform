@@ -1,7 +1,7 @@
 data "azurerm_client_config" "current" {}
 
 resource "azurerm_key_vault" "appvault" {
-  name                       = "bwkprdedaskeyvault${random_id.dns-suffix.dec}"
+  name                       = "kvfabterraesu${random_id.dns-suffix.dec}"
   location                   = local.location
   resource_group_name        = local.resource_group_name
   tenant_id                  = data.azurerm_client_config.current.tenant_id
