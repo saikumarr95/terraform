@@ -22,9 +22,6 @@ resource "azurerm_key_vault" "appvault" {
       "Get", "Set", "Delete", "List", "Recover", "Purge"
     ]
   }
-  depends_on = [
-    azurerm_resource_group.appgrp
-  ]
 
   timeouts {
     create = "45m"
