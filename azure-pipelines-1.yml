@@ -21,7 +21,7 @@ steps:
   inputs:
     command: 'init'
     backendType: 'azurerm'
-    backendServiceArm: 'CPU-CIS-Fabric-Corp-Prod-001'
+    backendServiceArm: 'azspn-cpu-cis-fabric-corp-prod-001'
     backendAzureRmSubscriptionId: '6bae2ad5-f444-4054-bc59-73e900e89019'
     backendAzureRmResourceGroupName: 'rg-Fabric-Corp-Terraform-001'
     backendAzureRmStorageAccountName: 'stfabtfesu'
