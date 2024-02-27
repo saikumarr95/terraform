@@ -1,0 +1,79 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger: none
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  bkstrgrg: 'rg-Fabric-Corp-Terraform-001'
+  bkstr: 'stfabtfesu'
+  bkcontainer: 'azuretfstate'
+  bkstrgkey: 'terraformpipeline.tfstate'
+
+stages:
+  - stage: tfvalidate
+    jobs:
+      - job: validate
+        continueOnError: false
+        steps: 
+        - task: TerraformInstaller@1
+          displayName: tfinstall
+          inputs:
+            terraformVersion: 'latest'
+        - task: TerraformTaskV4@4
+          displayName: Terraform Init
+          inputs:
+            provider: 'azurerm'
+            command: 'init'
+            commandOptions: -backend=false
+            backendServiceArm: 'azspn-cpu-cis-fabric-corp-prod-001'
+            backendAzureRmResourceGroupName: 'rg-Fabric-Corp-Terraform-001'
+            backendAzureRmStorageAccountName: 'stfabtfesu'
+            backendAzureRmContainerName: 'azuretfstate'
+            backendAzureRmKey: 'terraformpipeline.tfstate'
+            environmentServiceNameAzureRM: 'CPU-CIS-Fabric-Corp-Prod-001(8f4ad6f9-0b2b-4dda-bc17-81ebaf1478e2)'
+        
+        - task: TerraformTaskV4@4
+          displayName: Terraform Validate
+          inputs:
+            provider: 'azurerm'
+            command: 'validate'
+
+  - stage: tfdeploy
+    condition: succeeded('tfvalidate')
+    dependsOn: tfvalidate
+    jobs:
+      - job: apply
+        steps:
+        - task: TerraformInstaller@1
+          displayName: tfinstall
+          inputs:
+            terraformVersion: 'latest'
+        - task: TerraformTaskV4@4
+          displayName: Terraform Init
+          inputs:
+            provider: 'azurerm'
+            command: 'init'
+            backendServiceArm: 'azspn-cpu-cis-fabric-corp-prod-001'
+            backendAzureRmResourceGroupName: 'rg-Fabric-Corp-Terraform-001'
+            backendAzureRmStorageAccountName: 'stfabtfesu'
+            backendAzureRmContainerName: 'azuretfstate'
+            backendAzureRmKey: 'terraformpipeline.tfstate'
+            environmentServiceNameAzureRM: 'CPU-CIS-Fabric-Corp-Prod-001(6bae2ad5-f444-4054-bc59-73e900e89019)'
+        - task: TerraformTaskV4@4
+          displayName: Terraform Plan
+          inputs:
+            provider: 'azurerm'
+            command: 'plan'
+            environmentServiceNameAzureRM: 'CPU-CIS-Fabric-Corp-Prod-001(6bae2ad5-f444-4054-bc59-73e900e89019)'
+        - task: TerraformTaskV4@4
+          displayName: Terraform Apply
+          inputs:
+            provider: 'azurerm'
+            command: 'apply'
+            environmentServiceNameAzureRM: 'CPU-CIS-Fabric-Corp-Prod-001(6bae2ad5-f444-4054-bc59-73e900e89019)'
+            
