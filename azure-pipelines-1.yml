@@ -22,7 +22,9 @@ steps:
     command: 'init'
     backendType: 'azurerm'
     backendServiceArm: 'azspn-cpu-cis-fabric-corp-prod-001'
+    environmentServiceName: 'azspn-cpu-cis-fabric-corp-prod-001'
     backendAzureRmSubscriptionId: '6bae2ad5-f444-4054-bc59-73e900e89019'
+    providerAzureRmSubscriptionId: '6bae2ad5-f444-4054-bc59-73e900e89019'
     backendAzureRmResourceGroupName: 'rg-Fabric-Corp-Terraform-001'
     backendAzureRmStorageAccountName: 'stfabtfesu'
     backendAzureRmContainerName: 'azuretfstate'
@@ -32,10 +34,14 @@ steps:
 - task: TerraformCLI@2
   inputs:
     command: 'validate'
+    environmentServiceName: 'azspn-cpu-cis-fabric-corp-prod-001'
+    providerAzureRmSubscriptionId: '6bae2ad5-f444-4054-bc59-73e900e89019'
     allowTelemetryCollection: true
 
 - task: TerraformCLI@2
   inputs:
-    command: 'apply'
+    command: 'plan'
+    environmentServiceName: 'azspn-cpu-cis-fabric-corp-prod-001'
+    providerAzureRmSubscriptionId: '6bae2ad5-f444-4054-bc59-73e900e89019'
     commandOptions: '-input=false'
     allowTelemetryCollection: true
