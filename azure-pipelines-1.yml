@@ -10,14 +10,12 @@ pool:
 
 steps:
 
-
-- task: TerraformInstaller@1
+- task: JasonBJohnson.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@1
   displayName: "Install Terraform"
   inputs:
     terraformVersion: "latest"
 
-
-- task: TerraformCLI@2
+- task: TerraformCLI@1
   inputs:
     command: 'init'
     backendType: 'azurerm'
@@ -31,14 +29,14 @@ steps:
     backendAzureRmKey: 'terraformpipeline.tfstate'
     allowTelemetryCollection: true
 
-- task: TerraformCLI@2
+- task: TerraformCLI@1
   inputs:
     command: 'validate'
     environmentServiceName: 'azspn-cpu-cis-fabric-corp-prod-001'
     providerAzureRmSubscriptionId: '6bae2ad5-f444-4054-bc59-73e900e89019'
     allowTelemetryCollection: true
 
-- task: TerraformCLI@2
+- task: TerraformCLI@1
   inputs:
     command: 'plan'
     environmentServiceName: 'azspn-cpu-cis-fabric-corp-prod-001'
