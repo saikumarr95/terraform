@@ -29,7 +29,7 @@ steps:
     backendAzureRmStorageAccountName: 'stfabtfesu'
     backendAzureRmContainerName: 'azuretfstate'
     backendAzureRmKey: 'terraformpipeline.tfstate'
-    allowTelemetryCollection: true"
+    allowTelemetryCollection: true
 
 - task: TerraformCLI@2
   inputs:
