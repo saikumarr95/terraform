@@ -19,27 +19,27 @@ steps:
   inputs:
     command: 'init'
     backendType: 'azurerm'
-    backendServiceArm: 'azspn-cpu-cis-fabric-corp-prod-001'
-    environmentServiceName: 'azspn-cpu-cis-fabric-corp-prod-001'
+    backendServiceArm: 'azspn-cpu-cis-aiops-corp-nonprod-001'
+    environmentServiceName: 'azspn-cpu-cis-aiops-corp-nonprod-001'
     backendAzureRmSubscriptionId: '23901823-e0ae-47b1-b16e-f3897302cca3'
     providerAzureRmSubscriptionId: '6507a1cf-15d4-4a96-93b8-9680912007d5'
     backendAzureRmResourceGroupName: 'rg-mhub-tfstate-uks'
     backendAzureRmStorageAccountName: 'stmhubtfstateuks '
-    backendAzureRmContainerName: 'cpu-cis-fabric-corp-prod-001'
+    backendAzureRmContainerName: 'cpu-cis-aiops-corp-prod-001'
     backendAzureRmKey: 'terraformpipeline.tfstate'
     allowTelemetryCollection: true
 
 - task: TerraformCLI@1
   inputs:
     command: 'validate'
-    environmentServiceName: 'azspn-cpu-cis-fabric-corp-prod-001'
+    environmentServiceName: 'azspn-cpu-cis-aiops-corp-nonprod-001'
     providerAzureRmSubscriptionId: '6507a1cf-15d4-4a96-93b8-9680912007d5'
     allowTelemetryCollection: true
 
 - task: TerraformCLI@1
   inputs:
     command: 'plan'
-    environmentServiceName: 'azspn-cpu-cis-fabric-corp-prod-001'
+    environmentServiceName: 'azspn-cpu-cis-aiops-corp-nonprod-001'
     providerAzureRmSubscriptionId: '6507a1cf-15d4-4a96-93b8-9680912007d5'
     commandOptions: '-input=false'
     allowTelemetryCollection: true
