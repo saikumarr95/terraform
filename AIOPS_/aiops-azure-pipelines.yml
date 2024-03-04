@@ -25,7 +25,7 @@ steps:
     providerAzureRmSubscriptionId: '6507a1cf-15d4-4a96-93b8-9680912007d5'
     backendAzureRmResourceGroupName: 'rg-mhub-tfstate-uks'
     backendAzureRmStorageAccountName: 'stmhubtfstateuks '
-    backendAzureRmContainerName: 'cpu-cis-aiops-corp-prod-001'
+    backendAzureRmContainerName: 'cpu-cis-aiops-corp-nonprod-001'
     backendAzureRmKey: 'terraformpipeline.tfstate'
     allowTelemetryCollection: true
 
