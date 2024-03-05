@@ -1,12 +1,13 @@
 data "azurerm_client_config" "current" {}
 
 resource "azurerm_key_vault" "appvault" {
-  name                       = "kvfabterraesu${random_id.dns-suffix.dec}"
+  name                       = "kv-fab-terra-esu${random_id.dns-suffix.dec}"
   location                   = local.location
   resource_group_name        = local.resource_group_name
   tenant_id                  = data.azurerm_client_config.current.tenant_id
   soft_delete_retention_days = 90
-  purge_protection_enabled   = false
+  public_network_access_enabled = false
+  purge_protection_enabled      = true
 
   sku_name = "standard"
 
