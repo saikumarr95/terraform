@@ -16,13 +16,13 @@ storage_account_replication_type = "LRS"
 }
 */
 module "azure_search_module" {
-  source = "./azuresearch"
+  source = "./AIOPS_/azuresearch"
    resource_group_name = "rg-aiops-mvp-eus"
    location = "eastus"
    azure_search_service_name = "as-aiops-mvp-eus"
 }
 module "azure_openai_module" {
-source = "./azureopenai"
+source = "./AIOPS_/azureopenai"
 resource_group_name = "rg-aiops-mvp-eus"
 location = "eastus"
 azure_openai_service_name = "azopenai-aiops-mvp-eus"
@@ -31,7 +31,7 @@ azure_openai_kind = "OpenAI"
 }
 
 module "azure_webapp_module" {
-source = "./aiopswebapp"
+source = "./AIOPS_/aiopswebapp"
 resource_group_name = "rg-aiops-mvp-eus"
 location = "eastus"
 aiops_serviceplan_name = "aiops_webapp_serviceplan"
