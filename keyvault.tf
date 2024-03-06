@@ -1,3 +1,4 @@
+/*
 data "azurerm_client_config" "current" {}
 
 resource "azurerm_key_vault" "appvault" {
@@ -45,3 +46,4 @@ resource "azurerm_key_vault_secret" "vmpassword" {
   }
 
 }
+*/
