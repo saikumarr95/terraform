@@ -14,7 +14,7 @@ resource "azurerm_key_vault" "appvault" {
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
     object_id = data.azurerm_client_config.current.object_id
-*/ 
+
   key_permissions = [
       "Get", "Update", "List", "Delete"
     ]
@@ -23,7 +23,7 @@ resource "azurerm_key_vault" "appvault" {
       "Get", "Set", "Delete", "List", "Recover", "Purge"
     ]
   }
-
+*/
   timeouts {
     create = "45m"
     delete = "1h"
