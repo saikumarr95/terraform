@@ -13,7 +13,7 @@ resource "azurerm_storage_account" "appstore" {
   public_network_access_enabled = false
  
 }
-
+/*
 resource "azurerm_storage_container" "data" {
   for_each = toset(["st-fab-webjobs-hosts","stfab-webjobs-secrets","st-fab-scm-releases"])
   name                  = each.key
@@ -23,4 +23,4 @@ resource "azurerm_storage_container" "data" {
     azurerm_storage_account.appstore
   ]
 }
-
+*/
