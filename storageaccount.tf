@@ -4,7 +4,7 @@ resource "random_id" "dns-suffix" {
 }
 
 resource "azurerm_storage_account" "appstore" { 
-  name                     = "st-fabric-terraform${random_id.dns-suffix.dec}"
+  name                     = "stfabricterraform${random_id.dns-suffix.dec}"
   resource_group_name      = local.resource_group_name
   location                 = local.location
   account_tier             = "Standard"
