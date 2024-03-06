@@ -1,4 +1,4 @@
-#data "azurerm_client_config" "current" {}
+data "azurerm_client_config" "current" {}
 
 resource "azurerm_key_vault" "appvault" {
   name                       = "kv-fab-terra-esu${random_id.dns-suffix.dec}"
@@ -10,11 +10,11 @@ resource "azurerm_key_vault" "appvault" {
   purge_protection_enabled      = true
 
   sku_name = "standard"
-
+/*
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
     object_id = data.azurerm_client_config.current.object_id
- 
+*/ 
   key_permissions = [
       "Get", "Update", "List", "Delete"
     ]
