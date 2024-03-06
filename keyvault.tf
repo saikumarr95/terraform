@@ -1,5 +1,5 @@
 data "azurerm_client_config" "current" {}
-
+/*
 resource "azurerm_key_vault" "appvault" {
   name                       = "kv-fab-terra-esu${random_id.dns-suffix.dec}"
   location                   = local.location
@@ -45,3 +45,5 @@ resource "azurerm_key_vault_secret" "vmpassword" {
   }
 
 }
+
+*/
