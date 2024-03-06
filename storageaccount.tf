@@ -1,3 +1,4 @@
+/*
 resource "random_id" "dns-suffix" {
   byte_length = 1
 }
@@ -23,3 +24,4 @@ resource "azurerm_storage_container" "data" {
   ]
 }
 
+*/
