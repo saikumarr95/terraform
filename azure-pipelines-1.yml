@@ -19,8 +19,8 @@ steps:
   inputs:
     command: 'init'
     backendType: 'azurerm'
-    backendServiceArm: 'azspn-cpu-cis-fabric-corp-nonprod-001'
-    environmentServiceName: 'azspn-cpu-cis-fabric-corp-nonprod-001'
+    backendServiceArm: 'azspn-cpu-cis-fabric-corp-prod-001'
+    environmentServiceName: 'azspn-cpu-cis-fabric-corp-prod-001'
     backendAzureRmSubscriptionId: '23901823-e0ae-47b1-b16e-f3897302cca3'
     providerAzureRmSubscriptionId: '6bae2ad5-f444-4054-bc59-73e900e89019'
     backendAzureRmResourceGroupName: 'rg-mhub-tfstate-uks'
