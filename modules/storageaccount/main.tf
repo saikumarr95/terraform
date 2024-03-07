@@ -12,3 +12,14 @@ resource "azurerm_storage_account" "appstore" {
   public_network_access_enabled = false
  
 }
+# Container
+
+resource "azurerm_storage_container" "data" {
+  for_each = toset(["st-fab-webapps-hosts","stfab-webapps-secrets","st-fab-scm-releases"])
+  name                  = each.key
+  storage_account_name  = azurerm_storage_account.appstore.name
+  container_access_type = "private"
+  depends_on = [
+    azurerm_storage_account.appstore
+  ]
+}
