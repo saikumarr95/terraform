@@ -27,9 +27,9 @@ resource "azurerm_storage_container" "data" {
 
 resource "azurerm_storage_blob" "files" {
   for_each = {
-    sample1="C:\\tmp1\\sample1.txt"
-    sample2="C:\\tmp2\\sample2.txt"
-    sample3="C:\\tmp3\\sample3.txt"
+    sample1="C:\\tmp\\sample1.txt"
+    sample2="C:\\tmp\\sample2.txt"
+    sample3="C:\\tmp\\sample3.txt"
   }
   name                   = each.key
   storage_account_name   = azurerm_storage_account.appstore.name
