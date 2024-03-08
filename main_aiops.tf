@@ -13,7 +13,7 @@ location = "eastus"
 #storageaccount_name = "staiopsmvpeus"
 #storageacc_account_tier = "standard"
 #storage_account_replication_type = "LRS"
-public_network_access_enabled = false
+#public_network_access_enabled = false
 }
 
 /*
