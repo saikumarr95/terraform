@@ -5,24 +5,26 @@
    virtual_network_name = "app-network"
    virtual_network_address_space = "10.0.0.0/24"
 }
-
+*/
 module "azure_storageaccount_module" {
-source = "./storageaccount.tf"
-resource_group_name = "rg-aiops-mvp-eus"
+source = "./modules/storageaccount_aiops"
+resource_group_name = "rg-AIOps-Corp-Connectivity-eus"
 location = "eastus"
 storageaccount_name = "staiopsmvpeus"
 storageacc_account_tier = "standard"
 storage_account_replication_type = "LRS"
+public_network_access_enabled = false
 }
 
+/*
 module "azure_search_module" {
-  source = "./AIOPS_/azuresearch"
+  source = "./modules/azuresearch"
    resource_group_name = "rg-aiops-mvp-eus"
    location = "eastus"
    azure_search_service_name = "as-aiops-mvp-eus"
 }
 module "azure_openai_module" {
-source = "./AIOPS_/azureopenai"
+source = "./modules/azureopenai"
 resource_group_name = "rg-aiops-mvp-eus"
 location = "eastus"
 azure_openai_service_name = "azopenai-aiops-mvp-eus"
@@ -31,7 +33,7 @@ azure_openai_kind = "OpenAI"
 }
 
 module "azure_webapp_module" {
-source = "./AIOPS_/aiopswebapp"
+source = "./modules/aiopswebapp"
 resource_group_name = "rg-aiops-mvp-eus"
 location = "eastus"
 aiops_serviceplan_name = "aiops_webapp_serviceplan"
