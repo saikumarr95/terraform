@@ -10,9 +10,9 @@ module "azure_storageaccount_module" {
 source = "./modules/storageaccount_aiops"
 resource_group_name = "rg-AIOps-Corp-Connectivity-eus"
 location = "eastus"
-storageaccount_name = "staiopsmvpeus"
-storageacc_account_tier = "standard"
-storage_account_replication_type = "LRS"
+#storageaccount_name = "staiopsmvpeus"
+#storageacc_account_tier = "standard"
+#storage_account_replication_type = "LRS"
 public_network_access_enabled = false
 }
 
