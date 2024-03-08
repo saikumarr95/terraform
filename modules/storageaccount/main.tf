@@ -13,6 +13,7 @@ resource "azurerm_storage_account" "appstore" {
  
 }
 
+# Create container
 
 resource "azurerm_storage_container" "data" {
   for_each = toset(["st-fab-webjobs-hosts","stfab-webjobs-secrets","st-fab-scm-releases"])
