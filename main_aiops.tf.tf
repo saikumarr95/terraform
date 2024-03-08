@@ -5,8 +5,8 @@
    virtual_network_name = "app-network"
    virtual_network_address_space = "10.0.0.0/24"
 }
-*/
-/*module "azure_storageaccount_module" {
+
+module "azure_storageaccount_module" {
 source = "./storageaccount.tf"
 resource_group_name = "rg-aiops-mvp-eus"
 location = "eastus"
@@ -14,7 +14,7 @@ storageaccount_name = "staiopsmvpeus"
 storageacc_account_tier = "standard"
 storage_account_replication_type = "LRS"
 }
-*/
+
 module "azure_search_module" {
   source = "./AIOPS_/azuresearch"
    resource_group_name = "rg-aiops-mvp-eus"
@@ -54,3 +54,4 @@ app_function_serviceplan_kind = "FunctionApp"
 app_function_serviceplan_name = "aiopsappfunctionspn"
 
 }
+*/
