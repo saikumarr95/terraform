@@ -7,7 +7,7 @@ provider "azurerm" {
 provider "random" {
   #version = "=3.5.1"
 }
-*/
+
 terraform {
 
   backend "azurerm" {
@@ -65,3 +65,4 @@ provider "azapi" {
   # client_id       = var.connect_client_id
   # client_secret   = var.connect_client_secret
 }
+*/
