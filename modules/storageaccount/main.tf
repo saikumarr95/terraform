@@ -12,7 +12,7 @@ resource "azurerm_storage_account" "appstore" {
   public_network_access_enabled = false
  
 }
-/*
+
 # Create container
 
 resource "azurerm_storage_container" "data" {
@@ -24,7 +24,7 @@ resource "azurerm_storage_container" "data" {
     azurerm_storage_account.appstore
   ]
 }
-
+/*
 resource "azurerm_storage_blob" "files" {
   for_each = {
     sample1="C:\\tmp\\sample1.txt"
