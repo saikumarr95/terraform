@@ -12,7 +12,7 @@ resource "azurerm_storage_account" "appstore" {
   public_network_access_enabled = false
  
 }
-
+/*
 # Create container
 
 resource "azurerm_storage_container" "data" {
@@ -24,3 +24,20 @@ resource "azurerm_storage_container" "data" {
     azurerm_storage_account.appstore
   ]
 }
+
+resource "azurerm_storage_blob" "files" {
+  for_each = {
+    sample1="C:\\tmp1\\sample1.txt"
+    sample2="C:\\tmp2\\sample2.txt"
+    sample3="C:\\tmp3\\sample3.txt"
+  }
+  name                   = each.key
+  storage_account_name   = azurerm_storage_account.appstore.name
+  storage_container_name = "data"
+  type                   = "Block"
+  source                 = each.value
+  depends_on = [
+    azurerm_storage_account.appstore
+  ]
+}
+*/
