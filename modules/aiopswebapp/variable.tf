@@ -15,20 +15,13 @@ variable "aiops_webapp_name" {
   type=string
   description = "This defines the Webapp service name."
 }
-/*
+
 
 variable "os_type" {
   type=string
   description = "This defines the Webapp service name."
 }
-variable "current_stack" {
-  type=string
-  description = "This defines the Webapp stack name."
-}
-variable "dotnet_version" {
-  type=string
-  description = "This defines the stack version."
-}
+
 variable "sku_name" {
   description = "The pricing tier of the search service you want to create (for example, basic or standard)."
   default     = "S0"
@@ -37,6 +30,17 @@ variable "sku_name" {
     condition     = contains(["S0", "S1"], var.sku_name)
     error_message = "The sku must be one of the following values: S0,S1."
   }
+}
+
+/*
+
+variable "current_stack" {
+  type=string
+  description = "This defines the Webapp stack name."
+}
+variable "dotnet_version" {
+  type=string
+  description = "This defines the stack version."
 }
 
 variable "resource_group_name" {  
