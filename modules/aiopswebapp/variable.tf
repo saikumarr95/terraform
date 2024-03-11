@@ -22,6 +22,18 @@ variable "os_type" {
   description = "This defines the Webapp service name."
 }
 
+
+variable "subnet_id" {  
+  description = "The ID of the subnet where the private endpoint will be created."  
+}  
+variable "vnet_id" {  
+  description = "The ID of the VNet where the private DNS zone link will be created."  
+}  
+variable "private_dns_zone_name" {  
+  description = "The name of the private DNS zone to create for the web app."  
+}  
+
+
 /*
 variable "sku_name" {
   description = "The pricing tier of the search service you want to create (for example, basic or standard)."
