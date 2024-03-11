@@ -49,9 +49,9 @@ os_type = "Linux"
 #dotnet_version = "v6.0"
 }
 
-/*
+
 module "azure_functionapp_module" {
-source = "./azurefunction"
+source = "./modules/azurefunction"
 resource_group_name = "rg-AIOps-Corp-Connectivity-eus"
 location = "eastus"
 app_function_storageacc_name = "staiopsmvpeus"
@@ -60,6 +60,5 @@ app_function_storageacc_tier = "Standard"
 app_function_name = "aiops-appfunction"
 app_function_serviceplan_kind = "FunctionApp"
 app_function_serviceplan_name = "aiopsappfunctionspn"
-
 }
-*/
+
