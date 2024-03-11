@@ -49,7 +49,7 @@ os_type = "Linux"
 #dotnet_version = "v6.0"
 }
 
-
+/*
 module "azure_functionapp_module" {
 source = "./modules/azurefunction"
 resource_group_name = "rg-AIOps-Corp-Connectivity-eus"
@@ -62,3 +62,4 @@ app_function_serviceplan_kind = "FunctionApp"
 app_function_serviceplan_name = "aiopsappfunctionspn"
 }
 
+*/
