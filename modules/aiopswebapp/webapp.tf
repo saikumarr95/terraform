@@ -6,7 +6,7 @@ resource "azurerm_service_plan" "aiopswebapp_service_plan" {
   os_type             = var.os_type
   sku_name            = var.sku_name
   depends_on = [
-    azurerm_resource_group.rg-aiops-dev-mvp-eus
+    azurerm_resource_group.rg-AIOps-Corp-Connectivity-eus
   ]
 }
 
