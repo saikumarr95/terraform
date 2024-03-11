@@ -41,7 +41,7 @@ aiops_webapp_name = "wa-aiops-terraform-003"
 #aiops_serviceplan_name = "aiops-service-plan"
 #aiops_webapp_name = "aiops-web-app"
 os_type = "Linux"
-sku_name = "P1"
+#sku_name = "P1v3"
 #current_stack = "dotnet"
 #dotnet_version = "v6.0"
 }
