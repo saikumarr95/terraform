@@ -1,5 +1,5 @@
 resource "azurerm_private_endpoint" "aiops_webapp_endpoint" {  
-  name                = "${var.aiops_webapp_name}-endpoint"  
+  name                = pe-aiops_webapp_terraform_endpoint 
   location            = var.location  
   resource_group_name = var.resource_group_name  
   subnet_id           = var.subnet_id  
