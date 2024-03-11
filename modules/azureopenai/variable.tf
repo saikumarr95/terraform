@@ -79,4 +79,3 @@ variable "sku_name" {
     error_message = "The sku must be one of the following values: S0,S1."
   }
 }
-*/
