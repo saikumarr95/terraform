@@ -1,3 +1,4 @@
+/*
 output "ai_account_endpoint" {  
   value = azurerm_cognitive_account.ai_account.endpoint  
 }  
@@ -17,7 +18,7 @@ output "ai_search_key" {
   value = azurerm_cognitive_account_search.ai_search.key  
 }  
 
-/*
+
 output "openai_account_id" {  
   value = azurerm_cognitive_services_account.aiops_openai.id  
 }  
@@ -41,6 +42,8 @@ output "resource_group_name" {
 output "location" {
   value = azurerm_cognitive_account.azure_open_ai.location
 }
+
+
 output "azure_openai_service_name" {
   value = azurerm_cognitive_account.azure_open_ai.name
 }
