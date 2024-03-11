@@ -5,7 +5,7 @@
    virtual_network_name = "app-network"
    virtual_network_address_space = "10.0.0.0/24"
 }
-*/
+
 module "azure_storageaccount_module" {
 source = "./modules/storageaccount_aiops"
 resource_group_name = "rg-AIOps-Corp-Connectivity-eus"
@@ -15,16 +15,16 @@ location = "eastus"
 #storage_account_replication_type = "LRS"
 #public_network_access_enabled = false
 }
+*/
 
-/*
 module "azure_search_module" {
   source = "./modules/azuresearch"
-   resource_group_name = "rg-aiops-mvp-eus"
+   resource_group_name = "rg-AIOps-Corp-Connectivity-eus"
    location = "eastus"
    azure_search_service_name = "as-aiops-mvp-eus"
 }
-*/
 
+/*
 module "azure_openai_module" {
 source = "./modules/azureopenai"
 resource_group_name = "rg-AIOps-Corp-Connectivity-eus"
@@ -51,7 +51,7 @@ os_type = "Linux"
 #dotnet_version = "v6.0"
 }
 
-/*
+
 module "azure_functionapp_module" {
 source = "./modules/azurefunction"
 resource_group_name = "rg-AIOps-Corp-Connectivity-eus"
