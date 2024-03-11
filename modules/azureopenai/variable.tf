@@ -1,3 +1,4 @@
+/*
 variable "resource_group_name" {  
   type        = string  
   description = "Name of the resource group to create"  
@@ -47,7 +48,7 @@ variable "aiops_openai_name" {
 variable "aiops_custom_subdomain_name" {  
   description = "Custom subdomain name for the Azure Cognitive Services OpenAI resource."  
 }  
-
+*/
 
 variable "resource_group_name" {
   type=string
