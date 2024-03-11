@@ -1,3 +1,20 @@
+output "openai_account_id" {  
+  value = azurerm_cognitive_services_account.aiops_openai.id  
+}  
+  
+output "openai_account_name" {  
+  value = azurerm_cognitive_services_account.aiops_openai.name  
+}  
+  
+output "openai_account_endpoint" {  
+  value = azurerm_cognitive_services_account.aiops_openai.endpoint  
+}  
+  
+output "openai_account_key" {  
+  value = azurerm_cognitive_services_account.aiops_openai.primary_access_key  
+}  
+/*
+
 output "resource_group_name" {
   value = azurerm_cognitive_account.azure_open_ai.resource_group_name
 }
@@ -10,3 +27,4 @@ output "azure_openai_service_name" {
 output "azure_openai_deployment_name" {
   value = azurerm_cognitive_deployment.azure_open_ai_deployment.name
 }
+*/
