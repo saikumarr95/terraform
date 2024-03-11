@@ -31,10 +31,10 @@ azure_openai_service_name = "azopenai-aiops-mvp-eus"
 azure_openai_deployment_name = "azopenai-deployment-aiops-mvp-eus"
 azure_openai_kind = "OpenAI"
 }
-
+*/
 module "azure_webapp_module" {
 source = "./modules/aiopswebapp"
-resource_group_name = "rg-aiops-mvp-eus"
+resource_group_name = "rg-AIOps-Corp-Connectivity-eus"
 location = "eastus"
 aiops_serviceplan_name = "aiops_webapp_serviceplan"
 aiops_webapp_name = "aiops-webapp"
@@ -44,9 +44,10 @@ current_stack = "dotnet"
 dotnet_version = "v6.0"
 }
 
+*/
 module "azure_functionapp_module" {
 source = "./azurefunction"
-resource_group_name = "rg-aiops-mvp-eus"
+resource_group_name = "rg-AIOps-Corp-Connectivity-eus"
 location = "eastus"
 app_function_storageacc_name = "staiopsmvpeus"
 app_function_storageacc_replication = "LRS"
