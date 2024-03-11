@@ -1,4 +1,4 @@
-
+/*
 resource "azurerm_cognitive_account" "ai_account" {  
   name                = var.ai_account_name  
   resource_group_name = azurerm_resource_group.rg.name  
@@ -26,8 +26,7 @@ resource "azurerm_cognitive_account_search" "ai_search" {
     type = "SystemAssigned"  
   }  
 }  
-
-/*
+*/
 
 resource "azurerm_cognitive_account" "azure_open_ai" {
   name = var.azure_openai_service_name
@@ -51,4 +50,3 @@ resource "azurerm_cognitive_deployment" "azure_open_ai_deployment" {
     type= "standard"
   }
 }
-*/
