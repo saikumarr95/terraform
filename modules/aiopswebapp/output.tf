@@ -13,13 +13,13 @@ output "azure_webapp_name" {
 }
 */
 output "app_service_plan_id" {  
-  value = azurerm_app_service_plan.aiops_app_service_plan.id  
+  value = azurerm_service_plan.aiops_app_service_plan.id  
 }  
   
 output "web_app_id" {  
-  value = azurerm_app_service.aiops_app.id  
+  value = azurerm_service.aiops_app.id  
 }  
   
 output "web_app_default_hostname" {  
-  value = azurerm_app_service.aiops_app.default_site_hostname  
+  value = azurerm_service.aiops_app.default_site_hostname  
 }  
