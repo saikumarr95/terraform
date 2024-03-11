@@ -1,3 +1,29 @@
+  
+resource "azurerm_cognitive_services_account" "aiops_openai" {  
+  name                = var.aiops_openai_name  
+  resource_group_name = var.resource_group_name  
+  location            = var.location  
+  kind                = "CognitiveServices"  
+  sku_name            = "S0"  
+  sku_tier            = "Standard"  
+  sku_capacity        = 1  
+  
+  identity {  
+    type = "SystemAssigned"  
+  }  
+  
+  custom_subdomain_name = var.aiops_custom_subdomain_name  
+  
+  properties = jsonencode({  
+    apiProperties = {  
+      "model" = "gpt3-turing-5"  
+    }  
+  })  
+    
+}  
+
+
+/*
 resource "azurerm_cognitive_account" "azure_open_ai" {
   name = var.azure_openai_service_name
   location =var.location
@@ -19,3 +45,4 @@ resource "azurerm_cognitive_deployment" "azure_open_ai_deployment" {
     type= "standard"
   }
 }
+*/
