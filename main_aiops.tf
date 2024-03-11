@@ -44,7 +44,7 @@ current_stack = "dotnet"
 dotnet_version = "v6.0"
 }
 
-*/
+/*
 module "azure_functionapp_module" {
 source = "./azurefunction"
 resource_group_name = "rg-AIOps-Corp-Connectivity-eus"
