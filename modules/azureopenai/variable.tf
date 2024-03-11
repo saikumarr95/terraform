@@ -1,3 +1,20 @@
+variable "resource_group_name" {  
+  description = "Name of the resource group to deploy resources into."  
+}  
+  
+variable "location" {  
+  description = "Location of the resource group."  
+}  
+  
+variable "aiops_openai_name" {  
+  description = "Name of the Azure Cognitive Services OpenAI resource."  
+}  
+  
+variable "aiops_custom_subdomain_name" {  
+  description = "Custom subdomain name for the Azure Cognitive Services OpenAI resource."  
+}  
+
+/*
 variable "resource_group_name" {
   type=string
   description = "This defines the Azure open ai resource group name"
@@ -27,3 +44,4 @@ variable "sku_name" {
     error_message = "The sku must be one of the following values: S0,S1."
   }
 }
+*/
