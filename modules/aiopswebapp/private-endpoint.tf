@@ -1,3 +1,4 @@
+/*
 resource "azurerm_private_endpoint" "aiops_webapp_endpoint" {  
   name                = pe-aiops_webapp_terraform_endpoint 
   location            = var.location  
@@ -34,3 +35,4 @@ resource "azurerm_dns_a_record" "aiops_webapp_dns" {
     azurerm_private_dns_zone_virtual_network_link.dns_zone_link  
   ]  
 }  
+*/
