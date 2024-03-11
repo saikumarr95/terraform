@@ -16,7 +16,7 @@ location = "eastus"
 #storage_account_replication_type = "LRS"
 #public_network_access_enabled = false
 }
-*/
+
 
 module "azure_search_module" {
   source = "./modules/azuresearch"
