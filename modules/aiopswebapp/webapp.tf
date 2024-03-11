@@ -44,7 +44,8 @@ resource "azurerm_app_service" "aiops_app" {
   name                = var.aiops_webapp_name  
   resource_group_name = var.resource_group_name  
   location            = var.location  
-  app_service_plan_id = azurerm_app_service_plan.aiops_app_service_plan.id  
+  app_service_plan_id = azurerm_app_service_plan.aiops_app_service_plan.id 
+  https_only          = true
   
   site_config {  
     app_command_line = "python manage.py runserver 0.0.0.0:8000"  
