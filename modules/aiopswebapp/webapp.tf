@@ -49,7 +49,7 @@ resource "azurerm_linux_web_app" "aiops_app" {
   resource_group_name = var.resource_group_name  
   location            = var.location  
 #  app_service_plan_id = azurerm_app_service_plan.aiops_app_service_plan.id 
-  app_service_plan_id = azurerm_service_plan.aiops_app_service_plan.id 
+  service_plan_id = azurerm_service_plan.aiops_app_service_plan.id 
   https_only          = true
   public_network_access_enabled = false
   site_config {  
@@ -62,6 +62,6 @@ resource "azurerm_linux_web_app" "aiops_app" {
   }  
   
   depends_on = [  
-    azurerm_app_service_plan.aiops_app_service_plan  
+    azurerm_service_plan.aiops_app_service_plan  
   ]  
 }  
