@@ -1,3 +1,4 @@
+/*
 variable "resource_group_name" {
   type=string
   description = "This defines the Webapp ai resource group name"
@@ -35,3 +36,20 @@ variable "sku_name" {
     error_message = "The sku must be one of the following values: S0,S1."
   }
 }
+*/
+variable "resource_group_name" {  
+  description = "Name of the resource group to deploy resources into."  
+}  
+  
+variable "location" {  
+  description = "Location of the resource group."  
+}  
+  
+variable "aiops_serviceplan_name" {  
+  description = "Name of the app service plan."  
+}  
+  
+variable "aiops_webapp_name" {  
+  description = "Name of the web app."  
+}  
+
