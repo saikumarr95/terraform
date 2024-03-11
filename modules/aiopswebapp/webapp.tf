@@ -5,9 +5,9 @@ resource "azurerm_service_plan" "aiopswebapp_service_plan" {
   location            = var.location
   os_type             = var.os_type
   sku_name            = var.sku_name
-  depends_on = [
-    azurerm_resource_group.rg-AIOps-Corp-Connectivity-eus
-  ]
+ # depends_on = [
+ #   azurerm_resource_group.rg-AIOps-Corp-Connectivity-eus
+ # ]
 }
 
 resource "azurerm_windows_web_app" "aiops_webapp" {
