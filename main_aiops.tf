@@ -36,12 +36,12 @@ module "azure_webapp_module" {
 source = "./modules/aiopswebapp"
 resource_group_name = "rg-AIOps-Corp-Connectivity-eus"
 location = "eastus"
-aiops_serviceplan_name = "aiops_webapp_serviceplan"
-aiops_webapp_name = "aiops-webapp"
-os_type = "Windows"
-sku_name = "S1"
-current_stack = "dotnet"
-dotnet_version = "v6.0"
+#aiops_serviceplan_name = "aiops_webapp_serviceplan"
+#aiops_webapp_name = "aiops-webapp"
+#os_type = "Windows"
+#sku_name = "S1"
+#current_stack = "dotnet"
+#dotnet_version = "v6.0"
 }
 
 /*
