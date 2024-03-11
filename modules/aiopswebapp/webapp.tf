@@ -17,6 +17,9 @@ resource "azurerm_linux_web_app" "aiops_webapp" {
   service_plan_id     = azurerm_service_plan.aiopswebapp_service_plan.id
   https_only          = true
   public_network_access_enabled = false
+  app_settings = {  
+    "PYTHON_VERSION" = "3.10"  
+  }  
   site_config {
    # application_stack {
    #   current_stack=var.current_stack
