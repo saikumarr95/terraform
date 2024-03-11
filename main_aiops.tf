@@ -29,8 +29,8 @@ module "azure_openai_module" {
 source = "./modules/azureopenai"
 resource_group_name = "rg-AIOps-Corp-Connectivity-eus"
 location = "eastus"
-azure_openai_service_name = "azopenai-aiops-terraform-eus"
-azure_openai_deployment_name = "azopenai-deployment-aiops-terraform-eus"
+azure_openai_service_name = "azopenai-aiops-terraform-001-eus"
+azure_openai_deployment_name = "azopenai-deployment-aiops-terraform-001-eus"
 azure_openai_kind = "OpenAI"
 }
 
