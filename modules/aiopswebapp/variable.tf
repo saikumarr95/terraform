@@ -1,4 +1,4 @@
-/*
+
 variable "resource_group_name" {
   type=string
   description = "This defines the Webapp ai resource group name"
@@ -15,6 +15,8 @@ variable "aiops_webapp_name" {
   type=string
   description = "This defines the Webapp service name."
 }
+/*
+
 variable "os_type" {
   type=string
   description = "This defines the Webapp service name."
@@ -36,7 +38,7 @@ variable "sku_name" {
     error_message = "The sku must be one of the following values: S0,S1."
   }
 }
-*/
+
 variable "resource_group_name" {  
   description = "Name of the resource group to deploy resources into."  
 }  
@@ -52,4 +54,4 @@ variable "aiops_serviceplan_name" {
 variable "aiops_webapp_name" {  
   description = "Name of the web app."  
 }  
-
+*/
