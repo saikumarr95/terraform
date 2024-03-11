@@ -1,3 +1,4 @@
+/*
 output "web_app_url" {  
   value = "https://${azurerm_linux_web_app.aiops_webapp.default_site_hostname}"  
 }  
@@ -5,8 +6,6 @@ output "private_endpoint_ip" {
   value = azurerm_private_endpoint.aiops_webapp_endpoint.private_service_connection.0.private_ip_address  
 }  
 
-
-/*
 output "resource_group_name" {
   value = azurerm_service_plan.aiopswebapp_service_plan.resource_group_name
 }
