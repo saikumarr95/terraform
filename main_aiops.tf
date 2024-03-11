@@ -33,7 +33,7 @@ azure_openai_service_name = "azopenai-aiops-terraform-eus"
 azure_openai_deployment_name = "azopenai-deployment-aiops-terraform-eus"
 azure_openai_kind = "OpenAI"
 }
-*/
+
 module "azure_webapp_module" {
 source = "./modules/aiopswebapp"
 resource_group_name = "rg-AIOps-Corp-Connectivity-eus"
