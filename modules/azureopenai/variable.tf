@@ -1,4 +1,38 @@
 variable "resource_group_name" {  
+  type        = string  
+  description = "Name of the resource group to create"  
+}  
+variable "resource_group_location" {  
+  type        = string  
+  description = "Location of the resource group to create"  
+}  
+variable "ai_account_name" {  
+  type        = string  
+  description = "Name of the AI account"  
+}  
+variable "ai_account_sku" {  
+  type        = string  
+  description = "SKU of the AI account"  
+}  
+variable "openai_name" {  
+  type        = string  
+  description = "Name of the OpenAI resource"  
+}  
+variable "openai_sku" {  
+  type        = string  
+  description = "SKU of the OpenAI resource"  
+}  
+variable "ai_search_name" {  
+  type        = string  
+  description = "Name of the AI Search resource"  
+}  
+variable "ai_search_sku" {  
+  type        = string  
+  description = "SKU of the AI Search resource"  
+}  
+
+/*
+variable "resource_group_name" {  
   description = "Name of the resource group to deploy resources into."  
 }  
   
@@ -14,7 +48,7 @@ variable "aiops_custom_subdomain_name" {
   description = "Custom subdomain name for the Azure Cognitive Services OpenAI resource."  
 }  
 
-/*
+
 variable "resource_group_name" {
   type=string
   description = "This defines the Azure open ai resource group name"
