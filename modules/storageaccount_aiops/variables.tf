@@ -19,4 +19,5 @@ variable "private_endpoint_name" {
 variable "private_dns_zone_name" {  
   type        = string  
   description = "The name of the private DNS zone to create."  
-} default = "privatelink.blob.core.windows.net"
+ default = "privatelink.blob.core.windows.net"
+}
