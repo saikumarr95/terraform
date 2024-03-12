@@ -1,33 +1,3 @@
-/*
-resource "azurerm_cognitive_account" "ai_account" {  
-  name                = var.ai_account_name  
-  resource_group_name = azurerm_resource_group.rg.name  
-  kind                = "CognitiveServices"  
-  sku_name            = var.ai_account_sku  
-  identity {  
-    type = "SystemAssigned"  
-  }  
-}  
-resource "azurerm_cognitive_account_openai" "openai" {  
-  name                = var.openai_name  
-  resource_group_name = azurerm_resource_group.rg.name  
-  kind                = "OpenAi"  
-  sku_name            = var.openai_sku  
-  identity {  
-    type = "SystemAssigned"  
-  }  
-}  
-resource "azurerm_cognitive_account_search" "ai_search" {  
-  name                = var.ai_search_name  
-  resource_group_name = azurerm_resource_group.rg.name  
-  kind                = "AzureSearch"  
-  sku_name            = var.ai_search_sku  
-  identity {  
-    type = "SystemAssigned"  
-  }  
-}  
-*/
-
 resource "azurerm_cognitive_account" "azure_open_ai" {
   name = var.azure_openai_service_name
   location =var.location
