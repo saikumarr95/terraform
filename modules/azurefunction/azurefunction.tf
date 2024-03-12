@@ -1,3 +1,4 @@
+/*
 resource "azurerm_storage_account" "function-appserviceplan" {
   name                     = "fa-aiops-terraform-001"
   resource_group_name      = azurerm_resource_group.example.name
@@ -25,11 +26,11 @@ resource "azurerm_linux_function_app" "" {
 
   site_config {}
 }
+*/
 
 
 
 
-/*
 
 resource "azurerm_app_service_plan" "function-appserviceplan" {
   name                = var.app_function_serviceplan_name
@@ -57,4 +58,3 @@ resource "azurerm_function_app" "function_name" {
   storage_account_name       = azurerm_storage_account.aiops-storage.name
   storage_account_access_key = azurerm_storage_account.aiops-storage.primary_access_key
 }
-*/
