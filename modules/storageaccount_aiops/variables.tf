@@ -21,3 +21,9 @@ variable "private_dns_zone_name" {
   description = "The name of the private DNS zone to create."  
  default = "privatelink.blob.core.windows.net"
 }
+
+variable "private_service_connection" {  
+  type        = string  
+  description = "The name of the private service connection to create."  
+ default = "psc-st-aiops-terraform-private-connection"
+}
