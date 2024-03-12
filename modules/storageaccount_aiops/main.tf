@@ -16,8 +16,7 @@ resource "azurerm_storage_account" "appstore" {
 # Private Endpoint
 resource "azurerm_private_dns_zone" "storage_account_dns_zone" {  
   name                = var.private_dns_zone_name  
-  location            = var.location  
-  resource_group_name = var.resource_group_name
+    resource_group_name = var.resource_group_name
 }  
 resource "azurerm_private_dns_a_record" "storage_account_dns_record" {  
   name                = azurerm_storage_account.appstore.name  
@@ -37,7 +36,7 @@ resource "azurerm_private_endpoint" "storage_account_private_endpoint" {
     is_manual_connection           = false  
     subresource_names              = ["blob"]  
   }  
-  dns_zone_group {  
+  private_dns_zone_group {  
     name         = azurerm_private_dns_zone.storage_account_dns_zone.name  
     private_dns_zone_id = azurerm_private_dns_zone.storage_account_dns_zone.id  
   }  
