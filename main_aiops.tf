@@ -1,4 +1,5 @@
-/*module "networking_module" {
+/*
+module "networking_module" {
     source = "./networking"
    resource_group_name = "app-grp"
    location = "north europe"
