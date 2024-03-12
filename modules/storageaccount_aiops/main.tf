@@ -16,7 +16,7 @@ resource "azurerm_storage_account" "appstore" {
 # Private Endpoint
 resource "azurerm_private_dns_zone" "storage_account_dns_zone" {  
   name                = var.private_dns_zone_name  
-  location            = azurerm_resource_group.storage_rg.location  
+  location            = var.location  
   resource_group_name = var.resource_group_name
 }  
 resource "azurerm_private_dns_a_record" "storage_account_dns_record" {  
