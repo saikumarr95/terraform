@@ -32,7 +32,7 @@ resource "azurerm_private_endpoint" "storage_account_private_endpoint" {
   resource_group_name = azurerm_resource_group.storage_rg.name  
   subnet_id           = var.subnet_id  
   private_service_connection {  
-    name                           = "storageaccount-private-connection"  
+    name                           = var.private_service_connection
     private_connection_resource_id = azurerm_storage_account.storage_account.id  
     is_manual_connection           = false  
     subresource_names              = ["blob"]  
