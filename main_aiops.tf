@@ -58,7 +58,7 @@ module "azure_functionapp_module" {
 source = "./modules/azurefunction"
 resource_group_name = "rg-AIOps-Corp-Connectivity-eus"
 location = "eastus"
-app_function_storageacc_name = "staiopsmvpeus"
+app_function_storageacc_name = "staiopsmvpeustf"
 app_function_storageacc_replication = "LRS"
 app_function_storageacc_tier = "Standard"
 app_function_name = "fa-aiops-terraform"
