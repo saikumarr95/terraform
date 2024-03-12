@@ -6,7 +6,7 @@ module "networking_module" {
    virtual_network_name = "app-network"
    virtual_network_address_space = "10.0.0.0/24"
 }
-*/
+
 
 module "azure_storageaccount_module" {
 source = "./modules/storageaccount_aiops"
@@ -52,7 +52,7 @@ os_type = "Linux"
 #dotnet_version = "v6.0"
 }
 
-/*
+*/
 
 module "azure_functionapp_module" {
 source = "./modules/azurefunction"
@@ -66,4 +66,3 @@ app_function_serviceplan_kind = "FunctionApp"
 app_function_serviceplan_name = "faaiopsappfunctionspn"
 }
 
-*/
