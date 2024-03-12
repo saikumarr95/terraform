@@ -17,23 +17,23 @@ resource "azurerm_storage_account" "appstore" {
 resource "azurerm_private_dns_zone" "storage_account_dns_zone" {  
   name                = var.private_dns_zone_name  
   location            = azurerm_resource_group.storage_rg.location  
-  resource_group_name = azurerm_resource_group.storage_rg.name  
+  resource_group_name = var.resource_group_name
 }  
 resource "azurerm_private_dns_a_record" "storage_account_dns_record" {  
-  name                = azurerm_storage_account.storage_account.name  
+  name                = azurerm_storage_account.appstore.name  
   zone_name           = azurerm_private_dns_zone.storage_account_dns_zone.name  
-  resource_group_name = azurerm_resource_group.storage_rg.name  
+  resource_group_name = var.resource_group_name  
   ttl                 = 300  
-  records             = [azurerm_storage_account.storage_account.primary_blob_endpoint]  
+  records             = [azurerm_storage_account.appstore.primary_blob_endpoint]  
 }  
 resource "azurerm_private_endpoint" "storage_account_private_endpoint" {  
   name                = var.private_endpoint_name  
-  location            = azurerm_resource_group.storage_rg.location  
-  resource_group_name = azurerm_resource_group.storage_rg.name  
+  location            = var.location 
+  resource_group_name = var.resource_group_name  
   subnet_id           = var.subnet_id  
   private_service_connection {  
     name                           = var.private_service_connection
-    private_connection_resource_id = azurerm_storage_account.storage_account.id  
+    private_connection_resource_id = azurerm_storage_account.appstore.id  
     is_manual_connection           = false  
     subresource_names              = ["blob"]  
   }  
