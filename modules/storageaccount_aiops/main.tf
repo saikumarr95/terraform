@@ -14,11 +14,12 @@ resource "azurerm_storage_account" "appstore" {
 }
 
 # Private Endpoint
+/*
 resource "azurerm_private_dns_zone" "storage_account_dns_zone" {  
   name                = var.private_dns_zone_name  
     resource_group_name = var.resource_group_name
 }  
-/*
+
 resource "azurerm_private_dns_a_record" "storage_account_dns_record" {  
   name                = azurerm_storage_account.appstore.name  
   zone_name           = azurerm_private_dns_zone.storage_account_dns_zone.name  
@@ -42,7 +43,7 @@ resource "azurerm_private_endpoint" "storage_account_private_endpoint" {
     name         = azurerm_private_dns_zone.storage_account_dns_zone.name  
     private_dns_zone_ids = [azurerm_private_dns_zone.storage_account_dns_zone.id]  
   }
-  depends_on = [
-    azurerm_private_dns_zone.storage_account_dns_zone
-  ]  
+  #depends_on = [
+  #  azurerm_private_dns_zone.storage_account_dns_zone
+  #]  
 }  
