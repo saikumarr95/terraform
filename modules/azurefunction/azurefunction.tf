@@ -49,6 +49,7 @@ resource "azurerm_storage_account" "aiops-storage" {
   location                 = var.location
   account_tier             = var.app_function_storageacc_tier
   account_replication_type = var.app_function_storageacc_replication
+  public_network_access_enabled = false
 }
 resource "azurerm_function_app" "function_name" {
   name                       = var.app_function_name
