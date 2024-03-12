@@ -39,10 +39,10 @@ resource "azurerm_private_endpoint" "storage_account_private_endpoint" {
     is_manual_connection           = false  
     subresource_names              = ["blob"]  
   }  
-  private_dns_zone_group {  
-    name         = azurerm_private_dns_zone.storage_account_dns_zone.name  
-    private_dns_zone_ids = [azurerm_private_dns_zone.storage_account_dns_zone.id]  
-  }
+#  private_dns_zone_group {  
+#    name         = azurerm_private_dns_zone.storage_account_dns_zone.name  
+#    private_dns_zone_ids = [azurerm_private_dns_zone.storage_account_dns_zone.id]  
+#  }
   #depends_on = [
   #  azurerm_private_dns_zone.storage_account_dns_zone
   #]  
