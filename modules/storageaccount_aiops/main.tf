@@ -29,7 +29,7 @@ resource "azurerm_private_endpoint" "storage_account_private_endpoint" {
   name                = var.private_endpoint_name  
   location            = var.location 
   resource_group_name = var.resource_group_name  
-  subnet_id           = var.subnet_id  
+  subnet_id           = [data.azurerm_subnet.virtualSubnets1.*.id]  
   private_service_connection {  
     name                           = var.private_service_connection
     private_connection_resource_id = azurerm_storage_account.appstore.id  
