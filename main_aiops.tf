@@ -5,7 +5,7 @@
    virtual_network_name = "app-network"
    virtual_network_address_space = "10.0.0.0/24"
 }
-*/
+
 
 module "azure_storageaccount_module" {
 source = "./modules/storageaccount_aiops"
@@ -51,7 +51,7 @@ os_type = "Linux"
 #dotnet_version = "v6.0"
 }
 
-/*
+*/
 
 module "azure_functionapp_module" {
 source = "./modules/azurefunction"
@@ -60,9 +60,8 @@ location = "eastus"
 app_function_storageacc_name = "staiopsmvpeus"
 app_function_storageacc_replication = "LRS"
 app_function_storageacc_tier = "Standard"
-app_function_name = "aiops-appfunction"
+app_function_name = "fa-aiops-terraform"
 app_function_serviceplan_kind = "FunctionApp"
-app_function_serviceplan_name = "aiopsappfunctionspn"
+app_function_serviceplan_name = "faaiopsappfunctionspn"
 }
 
-*/
