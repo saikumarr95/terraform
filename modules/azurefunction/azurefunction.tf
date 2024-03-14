@@ -4,7 +4,6 @@ resource "azurerm_service_plan" "function-appserviceplan" {
   name                = var.app_linux_function_serviceplan_name
   location            = var.location
   resource_group_name = var.resource_group_name
-  #kind                = var.app_linux_function_serviceplan_kind
   sku_name   = "P1v3" 
   os_type    = "Linux"
 }
