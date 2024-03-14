@@ -11,10 +11,6 @@ variable "app_linux_function_serviceplan_name" {
   type=string
   description = "This defines the function service plan name."
 }
-#variable "app_function_serviceplan_kind" {
-#  type=string
-#  description = "This defines the function service plan name."
-#}
 
 variable "app_function_storageacc_name" {
   type=string
@@ -33,7 +29,7 @@ variable "app_linux_function_name" {
   description = "This defines the function name."
 }
 
-##storage account variables
+#storage account and private endpoint variables
 
 variable "private_endpoint_name" {  
   type        = string  
