@@ -61,7 +61,7 @@ location = "eastus"
 app_function_storageacc_name = "stfaaiopterraformesu99"
 app_function_storageacc_replication = "LRS"
 app_function_storageacc_tier = "Standard"
-app_linux_function_name = "fa-linux-aiops-terraform"
+app_linux_function_name = "fa-linux-aiops-terraform99"
 #app_function_serviceplan_kind = "FunctionApp"
 app_linux_function_serviceplan_name = "faaiopsappfunctionspn99"
 }
