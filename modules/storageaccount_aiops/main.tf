@@ -1,6 +1,7 @@
 resource "random_id" "dns-suffix" {
   byte_length = 1
 }
+#Storage Account
 
 resource "azurerm_storage_account" "appstore" { 
   name                     = "staiopsterraform${random_id.dns-suffix.dec}"
@@ -14,20 +15,7 @@ resource "azurerm_storage_account" "appstore" {
 }
 
 # Private Endpoint
-/*
-resource "azurerm_private_dns_zone" "storage_account_dns_zone" {  
-  name                = var.private_dns_zone_name  
-    resource_group_name = var.resource_group_name
-}  
 
-resource "azurerm_private_dns_a_record" "storage_account_dns_record" {  
-  name                = azurerm_storage_account.appstore.name  
-  zone_name           = azurerm_private_dns_zone.storage_account_dns_zone.name  
-  resource_group_name = var.resource_group_name  
-  ttl                 = 300  
-  records             = [azurerm_storage_account.appstore.primary_blob_endpoint]  
-}
-*/
 resource "azurerm_private_endpoint" "storage_account_private_endpoint" {  
   name                = var.private_endpoint_name  
   location            = var.location 
@@ -39,11 +27,4 @@ resource "azurerm_private_endpoint" "storage_account_private_endpoint" {
     is_manual_connection           = false  
     subresource_names              = ["blob"]  
   }  
-#  private_dns_zone_group {  
-#    name         = azurerm_private_dns_zone.storage_account_dns_zone.name  
-#    private_dns_zone_ids = [azurerm_private_dns_zone.storage_account_dns_zone.id]  
-#  }
-  #depends_on = [
-  #  azurerm_private_dns_zone.storage_account_dns_zone
-  #]  
 }  
