@@ -28,21 +28,49 @@ resource "azurerm_linux_function_app" "" {
 }
 */
 
-
-
-
-
-resource "azurerm_app_service_plan" "function-appserviceplan" {
-  name                = var.app_function_serviceplan_name
+resource "azurerm_service_plan" "function-appserviceplan" {
+  name                = var.app_linux_function_serviceplan_name
   location            = var.location
   resource_group_name = var.resource_group_name
-  kind                = var.app_function_serviceplan_kind
-  reserved = true
-  sku {
-    tier = "Dynamic"
-    size = "Y1"
-  }
+  #kind                = var.app_linux_function_serviceplan_kind
+  sku_name   = "P1v3" 
+  os_type    = "Linux"
 }
+
+
+resource "azurerm_linux_function_app" "function_name" {
+  name                       = var.app_linux_function_name
+  location                   = var.location
+  resource_group_name        = var.resource_group_name
+  service_plan_id            = azurerm_service_plan.function-appserviceplan.id
+  storage_account_name       = azurerm_storage_account.aiops-storage.name
+  storage_account_access_key = azurerm_storage_account.aiops-storage.primary_access_key
+  https_only                 = true
+  depends_on = [ azurerm_storage_account.aiops-storage ]
+  app_settings = {
+      WEBSITE_RUN_FROM_PACKAGE = "https://faaiops999.blob.core.windows.net/func/HttpTrigger1.zip?sp<sastoken>"
+      "FUNCTIONS_WORKER_RUNTIME" = "python",
+      "AzureWebJobsDisableHomepage" = "true",
+      "SCM_DO_BUILD_DURING_DEPLOYMENT" =  "true"
+  }
+  site_config {
+    application_stack {
+      python_version = "3.10"
+      }
+    elastic_instance_minimum = 1
+    }
+}
+
+# vnet connection
+/*
+resource "azurerm_app_service_virtual_network_swift_connection" "example" {
+  app_service_id = azurerm_linux_function_app.example.id
+  subnet_id           = flatten(data.azurerm_subnet.virtualSubnets1.*.id)[0]
+}
+*/
+
+#sorage account with private endpoint for FunctionApp 
+
 resource "azurerm_storage_account" "aiops-storage" {
   name                     = var.app_function_storageacc_name
   resource_group_name      = var.resource_group_name
@@ -51,11 +79,62 @@ resource "azurerm_storage_account" "aiops-storage" {
   account_replication_type = var.app_function_storageacc_replication
   public_network_access_enabled = false
 }
-resource "azurerm_function_app" "function_name" {
-  name                       = var.app_function_name
-  location                   = var.location
-  resource_group_name        = var.resource_group_name
-  app_service_plan_id        = azurerm_app_service_plan.function-appserviceplan.id
-  storage_account_name       = azurerm_storage_account.aiops-storage.name
-  storage_account_access_key = azurerm_storage_account.aiops-storage.primary_access_key
+
+# Private Endpoint Blob
+resource "azurerm_private_endpoint" "storage_account_private_endpoint" {  
+  name                = var.private_endpoint_name  
+  location            = var.location 
+  resource_group_name = var.resource_group_name  
+  subnet_id           = flatten(data.azurerm_subnet.virtualSubnets1.*.id)[0]
+  private_service_connection {  
+    name                           = var.private_service_connection
+    private_connection_resource_id = azurerm_storage_account.aiops-storage.id  
+    is_manual_connection           = false  
+    subresource_names              = ["blob"]  
+  }  
 }
+
+#Private Endpoint Files  
+resource "azurerm_private_endpoint" "storage_account_private_endpoint2" {  
+  name                = var.private_endpoint_name2  
+  location            = var.location 
+  resource_group_name = var.resource_group_name  
+  subnet_id           = flatten(data.azurerm_subnet.virtualSubnets1.*.id)[0]
+  private_service_connection {  
+    name                           = var.private_service_connection2
+    private_connection_resource_id = azurerm_storage_account.aiops-storage.id  
+    is_manual_connection           = false  
+    subresource_names              = ["file"]  
+  }  
+}  
+#Private Endpoint Web 
+resource "azurerm_private_endpoint" "storage_account_private_endpoint3" {  
+  name                = var.private_endpoint_name3  
+  location            = var.location 
+  resource_group_name = var.resource_group_name  
+  subnet_id           = flatten(data.azurerm_subnet.virtualSubnets1.*.id)[0]
+  private_service_connection {  
+    name                           = var.private_service_connection3
+    private_connection_resource_id = azurerm_storage_account.aiops-storage.id  
+    is_manual_connection           = false  
+    subresource_names              = ["web"]  
+  }  
+}  
+/*
+#Private Endpoint Sites
+resource "azurerm_private_endpoint" "storage_account_private_endpoint4" {  
+  name                = var.private_endpoint_name4  
+  location            = var.location 
+  resource_group_name = var.resource_group_name  
+  subnet_id           = flatten(data.azurerm_subnet.virtualSubnets1.*.id)[0]
+  private_service_connection {  
+    name                           = var.private_service_connection4
+    private_connection_resource_id = azurerm_storage_account.aiops-storage.id  
+    is_manual_connection           = false  
+    #subresource_names              = ["sites"]  
+    
+  }  
+} 
+*/
+
+
