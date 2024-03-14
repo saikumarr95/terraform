@@ -6,7 +6,7 @@ module "networking_module" {
    virtual_network_name = "app-network"
    virtual_network_address_space = "10.0.0.0/24"
 }
-*/
+
 
 module "azure_storageaccount_module" {
 source = "./modules/storageaccount_aiops"
@@ -18,7 +18,7 @@ location = "eastus"
 #public_network_access_enabled = false
 }
 
-/*
+
 module "azure_search_module" {
   source = "./modules/azuresearch"
    resource_group_name = "rg-AIOps-Corp-Connectivity-eus"
@@ -52,18 +52,17 @@ os_type = "Linux"
 #dotnet_version = "v6.0"
 }
 
-
+*/
 
 module "azure_functionapp_module" {
 source = "./modules/azurefunction"
 resource_group_name = "rg-AIOps-Corp-Connectivity-eus"
 location = "eastus"
-app_function_storageacc_name = "staiopsmvpeustf"
+app_function_storageacc_name = "stfaaiopsmvpeustf"
 app_function_storageacc_replication = "LRS"
 app_function_storageacc_tier = "Standard"
 app_function_name = "fa-aiops-terraform"
-app_function_serviceplan_kind = "FunctionApp"
+#app_function_serviceplan_kind = "FunctionApp"
 app_function_serviceplan_name = "faaiopsappfunctionspn001"
 }
 
-*/
