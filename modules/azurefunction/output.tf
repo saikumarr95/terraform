@@ -12,3 +12,12 @@ output "azure_webapp_name" {
   value = azurerm_windows_web_app.aiops_webapp.name
 }
 */
+
+output "private_endpoint_id" {  
+  value = azurerm_private_endpoint.storage_account_private_endpoint.id  
+}  
+
+# Fetch subnet_id
+output "virtualnetwork_subnets_ids" {
+  value = data.azurerm_subnet.virtualSubnets1.*.id
+}
