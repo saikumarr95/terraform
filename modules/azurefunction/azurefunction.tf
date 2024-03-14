@@ -46,6 +46,7 @@ resource "azurerm_linux_function_app" "function_name" {
   storage_account_name       = azurerm_storage_account.aiops-storage.name
   storage_account_access_key = azurerm_storage_account.aiops-storage.primary_access_key
   https_only                 = true
+  public_network_access_enabled = false
   depends_on = [ azurerm_storage_account.aiops-storage ]
   app_settings = {
       WEBSITE_RUN_FROM_PACKAGE = "https://faaiops999.blob.core.windows.net/func/HttpTrigger1.zip?sp<sastoken>"
