@@ -13,8 +13,9 @@ resource "azurerm_cognitive_deployment" "azure_open_ai_deployment" {
   cognitive_account_id = azurerm_cognitive_account.azure_open_ai.id
   model {
     format = "OpenAI"
-    name = "gpt-35-turbo"
-    version = "0301"
+    name = "gpt-4"
+    #version = "0301"
+    #version = "1106-preview"
   }
   scale {
     type= "standard"
