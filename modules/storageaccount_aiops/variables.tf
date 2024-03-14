@@ -6,11 +6,7 @@ variable "location" {
   type=string
   description = "This defines the location of resource"
 }
-#variable "subnet_id" {  
-#  type        = string  
-#  description = "The ID of the subnet where the private endpoint will be deployed."
-#  default = ""  
-#}  
+
 variable "private_endpoint_name" {  
   type        = string  
   description = "The name of the private endpoint."
