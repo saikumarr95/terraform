@@ -63,6 +63,6 @@ app_function_storageacc_replication = "LRS"
 app_function_storageacc_tier = "Standard"
 app_linux_function_name = "fa-linux-aiops-terraform"
 #app_function_serviceplan_kind = "FunctionApp"
-app_function_serviceplan_name = "faaiopsappfunctionspn99"
+app_linux_function_serviceplan_name = "faaiopsappfunctionspn99"
 }
 
