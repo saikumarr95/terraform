@@ -21,10 +21,7 @@ resource "azurerm_linux_web_app" "aiops_webapp" {
     "PYTHON_VERSION" = "3.10"  
   }  
   site_config {
-   # application_stack {
-   #   current_stack=var.current_stack
-   #   dotnet_version= var.dotnet_version
-   # }
+   
   }
 
   depends_on = [
