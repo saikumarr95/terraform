@@ -1,23 +1,10 @@
-/*
-module "networking_module" {
-    source = "./networking"
-   resource_group_name = "app-grp"
-   location = "north europe"
-   virtual_network_name = "app-network"
-   virtual_network_address_space = "10.0.0.0/24"
-}
-*/
+#Terraform Modules for AIOPS 
 
 module "azure_storageaccount_module" {
 source = "./modules/storageaccount_aiops"
 resource_group_name = "rg-AIOps-Corp-Connectivity-eus"
 location = "eastus"
-#storageaccount_name = "staiopsmvpeus"
-#storageacc_account_tier = "standard"
-#storage_account_replication_type = "LRS"
-#public_network_access_enabled = false
 }
-
 
 module "azure_search_module" {
   source = "./modules/azuresearch"
@@ -41,18 +28,8 @@ resource_group_name = "rg-AIOps-Corp-Connectivity-eus"
 location = "eastus"
 aiops_serviceplan_name = "wa-aiops-service-plan-003"
 aiops_webapp_name = "wa-aiops-terraform-003"
-#aiops_serviceplan_name = "aiops-service-plan"
-#aiops_webapp_name = "aiops-web-app"
 os_type = "Linux"
-#subnet_id = "sn-staiopsstorage-eus"
-#vnet_id  = "vnet-cis-aiops-d-eus"
-#private_dns_zone_name = "aiops_webapp_name-dns-zone-link"
-#sku_name = "P1v3"
-#current_stack = "dotnet"
-#dotnet_version = "v6.0"
 }
-
-
 
 module "azure_functionapp_module" {
 source = "./modules/azurefunction"
