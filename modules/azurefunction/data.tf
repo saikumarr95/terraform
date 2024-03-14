@@ -1,3 +1,5 @@
+# Data resource to fetch the existing network configuration details
+
 data "azurerm_subnet" "virtualSubnets1" {
     name                 =  "sn-staiopsstorage-eus"
     virtual_network_name = "vnet-cis-aiops-d-eus"
