@@ -58,11 +58,11 @@ module "azure_functionapp_module" {
 source = "./modules/azurefunction"
 resource_group_name = "rg-AIOps-Corp-Connectivity-eus"
 location = "eastus"
-app_function_storageacc_name = "stfaaiopsmvpeustf"
+app_function_storageacc_name = "stfaaiopterraformesu99"
 app_function_storageacc_replication = "LRS"
 app_function_storageacc_tier = "Standard"
-app_linux_function_name = "fa-aiops-terraform"
+app_linux_function_name = "fa-linux-aiops-terraform"
 #app_function_serviceplan_kind = "FunctionApp"
-app_function_serviceplan_name = "faaiopsappfunctionspn001"
+app_function_serviceplan_name = "faaiopsappfunctionspn99"
 }
 
