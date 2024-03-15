@@ -1,3 +1,4 @@
+
 #Terraform Modules for AIOPS   
   
 module "azure_storageaccount_module" {  
@@ -5,7 +6,9 @@ module "azure_storageaccount_module" {
   resource_group_name = var.resource_group_name_storage  
   location = var.location_storage  
     
-}  
+} 
+
+/*
   
 module "azure_search_module" {  
   source = "./modules/azuresearch"  
@@ -42,3 +45,4 @@ module "azure_functionapp_module" {
   app_linux_function_name = var.app_linux_function_name  
   app_linux_function_serviceplan_name = var.app_linux_function_serviceplan_name  
 }  
+*/
