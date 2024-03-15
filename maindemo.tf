@@ -8,7 +8,6 @@ module "azure_storageaccount_module" {
     
 } 
 
-/*
   
 module "azure_search_module" {  
   source = "./modules/azuresearch"  
