@@ -5,6 +5,7 @@
 
 trigger: none
 
+# Self Hosted Agent Pool
 pool:
   name: Azure EUS
 
