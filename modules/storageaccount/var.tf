@@ -1,3 +1,4 @@
+/*
 variable "resource_group_name" {
   type=string
   description = "This defines the resource group name"
@@ -7,7 +8,7 @@ variable "location" {
   description = "This defines the location of resource"
 }
 
-/*
+
 variable "storageaccount_name" {
   type=string
   description = "This defines the service name."
