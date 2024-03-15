@@ -27,4 +27,5 @@ resource "azurerm_private_endpoint" "storage_account_private_endpoint" {
     is_manual_connection           = false  
     subresource_names              = ["blob"]  
   }  
+  depends_on = [azurerm_storage_account.appstore]
 }  
