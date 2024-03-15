@@ -1,3 +1,4 @@
+/*
 #Terraform Modules for AIOPS 
 
 module "azure_storageaccount_module" {
@@ -42,3 +43,4 @@ app_linux_function_name = "fa-linux-aiops-terraform99"
 app_linux_function_serviceplan_name = "faaiopsappfunctionspn99"
 }
 
+*/
