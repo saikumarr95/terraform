@@ -51,3 +51,13 @@ steps:
     providerAzureRmSubscriptionId: '6507a1cf-15d4-4a96-93b8-9680912007d5'
     commandOptions: '-input=false'
     allowTelemetryCollection: true   
+
+##
+#Stage for Destroy the resource created via Pipeline.
+#- task: TerraformCLI@1
+#  inputs:
+#    command: 'to-destroy-stage'
+#    environmentServiceName: 'azspn-cpu-cis-aiops-corp-nonprod-001'
+#    providerAzureRmSubscriptionId: '6507a1cf-15d4-4a96-93b8-9680912007d5'
+#    commandOptions: '-input=true'
+#    allowTelemetryCollection: true   
