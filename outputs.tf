@@ -1,3 +1,4 @@
+/*
 # Outputs for azure_storageaccount_module  
 output "storage_account_name" {  
   value = module.azure_storageaccount_module.storage_account_name  
@@ -22,3 +23,4 @@ output "webapp_url" {
 output "functionapp_url" {  
   value = module.azure_functionapp_module.functionapp_url  
 }  
+*/
