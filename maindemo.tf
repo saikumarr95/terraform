@@ -44,4 +44,3 @@ module "azure_functionapp_module" {
   app_linux_function_name = var.app_linux_function_name  
   app_linux_function_serviceplan_name = var.app_linux_function_serviceplan_name  
 }  
-*/
