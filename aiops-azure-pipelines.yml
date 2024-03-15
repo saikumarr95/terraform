@@ -17,6 +17,7 @@ steps:
     terraformVersion: "latest"
 
 - task: TerraformCLI@1
+  displayName: Terraform Initalization via SPN
   inputs:
     command: 'init'
     backendType: 'azurerm'
@@ -31,6 +32,7 @@ steps:
     allowTelemetryCollection: true
 
 - task: TerraformCLI@1
+  displayName: Terraform Validate
   inputs:
     command: 'validate'
     environmentServiceName: 'azspn-cpu-cis-aiops-corp-nonprod-001'
@@ -38,6 +40,7 @@ steps:
     allowTelemetryCollection: true
 
 - task: TerraformCLI@1
+  displayName: Terraform Plan Preflight
   inputs:
     command: 'plan'
     environmentServiceName: 'azspn-cpu-cis-aiops-corp-nonprod-001'
@@ -46,6 +49,7 @@ steps:
     allowTelemetryCollection: true
 
 - task: TerraformCLI@1
+  displayName: Terraform Apply Build Infrastructure on Azure
   inputs:
     command: 'apply'
     environmentServiceName: 'azspn-cpu-cis-aiops-corp-nonprod-001'
