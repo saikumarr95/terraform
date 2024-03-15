@@ -1,7 +1,7 @@
 resource "random_id" "dns-suffix" {
   byte_length = 1
 }
-
+/*
 resource "azurerm_storage_account" "appstore" { 
   name                     = "stfabricterraform${random_id.dns-suffix.dec}"
   resource_group_name      = var.resource_group_name
@@ -15,3 +15,4 @@ resource "azurerm_storage_account" "appstore" {
 
 # Create container
 
+*/
