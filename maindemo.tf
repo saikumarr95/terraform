@@ -4,9 +4,7 @@ module "azure_storageaccount_module" {
   source = "./modules/storageaccount_aiops"  
   resource_group_name = var.resource_group_name_storage  
   location = var.location_storage  
-  #storage_account_name = var.app_function_storageacc_name  
-  #account_tier = var.app_function_storageacc_tier  
-  #account_replication_type = var.app_function_storageacc_replication  
+    
 }  
   
 module "azure_search_module" {  
