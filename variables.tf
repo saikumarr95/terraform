@@ -38,7 +38,7 @@ variable "location_openai" {
   
 variable "azure_openai_service_name" {  
   type = string  
-  default = "azopenai-aiops-terraform-mvp-eus"  
+  default = "azopenai-aiops-terraform-mvp-003-eus"  
 }  
   
 variable "azure_openai_deployment_name" {  
