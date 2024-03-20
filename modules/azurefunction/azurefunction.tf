@@ -6,6 +6,13 @@ resource "azurerm_service_plan" "function-appserviceplan" {
   resource_group_name = var.resource_group_name
   sku_name   = "P1v3" 
   os_type    = "Linux"
+  lifecycle {
+    ignore_changes = [
+      # Ignore changes to tags, e.g. because a management agent
+      # updates these based on some ruleset managed elsewhere.
+      tags,
+    ]
+  }
 }
 
 
