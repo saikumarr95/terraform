@@ -5,6 +5,13 @@ resource "azurerm_cognitive_account" "azure_open_ai" {
   kind = var.azure_openai_kind
   sku_name = var.sku_name
   public_network_access_enabled = false
+  lifecycle {
+    ignore_changes = [
+      # Ignore changes to tags, e.g. because a management agent
+      # updates these based on some ruleset managed elsewhere.
+      tags,
+    ]
+  }
   }
 
 
@@ -19,5 +26,12 @@ resource "azurerm_cognitive_deployment" "azure_open_ai_deployment" {
   }
   scale {
     type= "standard"
+  }
+  lifecycle {
+    ignore_changes = [
+      # Ignore changes to tags, e.g. because a management agent
+      # updates these based on some ruleset managed elsewhere.
+      tags,
+    ]
   }
 }
