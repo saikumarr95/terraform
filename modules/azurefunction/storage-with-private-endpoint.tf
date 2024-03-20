@@ -7,6 +7,13 @@ resource "azurerm_storage_account" "aiops-storage" {
   account_tier             = var.app_function_storageacc_tier
   account_replication_type = var.app_function_storageacc_replication
   public_network_access_enabled = false
+  lifecycle {
+    ignore_changes = [
+      # Ignore changes to tags, e.g. because a management agent
+      # updates these based on some ruleset managed elsewhere.
+      tags,
+    ]
+  }
 }
 
 # Private Endpoint Blob
