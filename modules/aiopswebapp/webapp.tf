@@ -5,6 +5,13 @@ resource "azurerm_service_plan" "aiopswebapp_service_plan" {
   location            = var.location
   os_type             = var.os_type
   sku_name            = "P1v3"
+  lifecycle {
+    ignore_changes = [
+      # Ignore changes to tags, e.g. because a management agent
+      # updates these based on some ruleset managed elsewhere.
+      tags,
+    ]
+  }
  # depends_on = [
  #   azurerm_resource_group.rg-AIOps-Corp-Connectivity-eus
  # ]
