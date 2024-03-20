@@ -23,6 +23,7 @@ resource "azurerm_cognitive_deployment" "azure_open_ai_deployment" {
     name = "gpt-4"
     #version = "0301" set to default version
     #version = "1106-preview"
+    version = "0613"
   }
   scale {
     type= "standard"
