@@ -27,5 +27,12 @@ resource "azurerm_private_endpoint" "storage_account_private_endpoint" {
     is_manual_connection           = false  
     subresource_names              = ["blob"]  
   }  
+  lifecycle {
+    ignore_changes = [
+      # Ignore changes to tags, e.g. because a management agent
+      # updates these based on some ruleset managed elsewhere.
+      tags,
+    ]
+  }
   depends_on = [azurerm_storage_account.appstore]
 }  
