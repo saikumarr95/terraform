@@ -23,7 +23,13 @@ resource "azurerm_linux_web_app" "aiops_webapp" {
   site_config {
    
   }
-
+  lifecycle {
+    ignore_changes = [
+      # Ignore changes to tags, e.g. because a management agent
+      # updates these based on some ruleset managed elsewhere.
+      tags,
+    ]
+  }
   depends_on = [
     azurerm_service_plan.aiopswebapp_service_plan
   ]
