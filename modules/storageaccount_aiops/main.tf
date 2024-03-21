@@ -31,7 +31,7 @@ resource "azurerm_private_endpoint" "storage_account_private_endpoint" {
     ignore_changes = [
       # Ignore changes to tags, e.g. because a management agent
       # updates these based on some ruleset managed elsewhere.
-      tags,
+      tags, private_dns_zone_group,
     ]
   }
   depends_on = [azurerm_storage_account.appstore]
