@@ -10,7 +10,7 @@ resource "azurerm_service_plan" "function-appserviceplan" {
     ignore_changes = [
       # Ignore changes to tags, e.g. because a management agent
       # updates these based on some ruleset managed elsewhere.
-      tags,
+      tags, private_dns_zone_group, 
     ]
   }
 }
