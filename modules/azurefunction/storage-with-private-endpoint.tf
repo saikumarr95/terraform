@@ -66,7 +66,8 @@ resource "azurerm_private_endpoint" "storage_account_private_endpoint4" {
   subnet_id           = flatten(data.azurerm_subnet.virtualSubnets1.*.id)[0]
   private_service_connection {  
     name                           = var.private_service_connection4
-    private_connection_resource_id = azurerm_storage_account.aiops-storage.id  
+    #private_connection_resource_id = azurerm_storage_account.aiops-storage.id 
+    private_connection_resource_id = azurerm_linux_function_app.function_name.id 
     is_manual_connection           = false  
     subresource_names              = ["sites"]  
     
