@@ -37,6 +37,8 @@ variable "private_endpoint_name" {
   default     = "pe-st-fa-terraform999"  
 }  
 
+/*
+
 variable "private_service_connection" {  
   type        = string  
   description = "The name of the private service connection to create."  
@@ -64,6 +66,8 @@ variable "private_service_connection3" {
  default = "psc3-st-fa-web-terraform-private-connection"
 }
 
+*/
+
 variable "private_endpoint_name4" {  
   type        = string  
   description = "The name of the private endpoint."
@@ -74,6 +78,4 @@ variable "private_service_connection4" {
   description = "The name of the private service connection to create."  
  default = "psc4-st-fa-sites-terraform-private-connection"
 }
-
-
 
