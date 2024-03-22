@@ -1,7 +1,7 @@
 
 # Outputs for azure_storageaccount_module  
 output "storage_account_name" {  
-  value = module.azure_storageaccount_module.storage_account_name  
+  value = module.azure_storageaccount_module.appstore.name 
 }  
 /*  
 # Outputs for azure_search_module  
