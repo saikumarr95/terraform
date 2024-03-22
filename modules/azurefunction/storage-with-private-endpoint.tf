@@ -57,7 +57,7 @@ resource "azurerm_private_endpoint" "storage_account_private_endpoint3" {
     subresource_names              = ["web"]  
   }  
 }  
-/*
+
 #Private Endpoint Sites
 resource "azurerm_private_endpoint" "storage_account_private_endpoint4" {  
   name                = var.private_endpoint_name4  
@@ -68,10 +68,10 @@ resource "azurerm_private_endpoint" "storage_account_private_endpoint4" {
     name                           = var.private_service_connection4
     private_connection_resource_id = azurerm_storage_account.aiops-storage.id  
     is_manual_connection           = false  
-    #subresource_names              = ["sites"]  
+    subresource_names              = ["sites"]  
     
   }  
 } 
-*/
+
 
 
