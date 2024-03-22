@@ -73,10 +73,9 @@ resource "azurerm_function_app_function" "sample_function" {
 
 
 # vnet connection
-/*
+
 resource "azurerm_app_service_virtual_network_swift_connection" "example" {
   app_service_id = azurerm_linux_function_app.example.id
   subnet_id           = flatten(data.azurerm_subnet.virtualSubnets1.*.id)[0]
 }
-*/
 
