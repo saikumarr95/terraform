@@ -17,6 +17,7 @@ resource "azurerm_storage_account" "aiops-storage" {
   }
 }
 
+/*
 # Private Endpoint Blob
 resource "azurerm_private_endpoint" "storage_account_private_endpoint" {  
   name                = var.private_endpoint_name  
@@ -57,6 +58,7 @@ resource "azurerm_private_endpoint" "storage_account_private_endpoint3" {
     subresource_names              = ["web"]  
   }  
 }  
+*/
 
 #Private Endpoint Sites
 resource "azurerm_private_endpoint" "storage_account_private_endpoint4" {  
@@ -73,6 +75,3 @@ resource "azurerm_private_endpoint" "storage_account_private_endpoint4" {
     
   }  
 } 
-
-
-
