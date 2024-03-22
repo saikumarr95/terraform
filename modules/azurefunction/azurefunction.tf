@@ -73,6 +73,7 @@ resource "azurerm_function_app_function" "sample_function" {
 */
 
 
+
 # vnet connection
 
 resource "azurerm_app_service_virtual_network_swift_connection" "vnet_integration" {
@@ -80,3 +81,20 @@ resource "azurerm_app_service_virtual_network_swift_connection" "vnet_integratio
   subnet_id           = flatten(data.azurerm_subnet.virtualSubnets1.*.id)[0]
 }
 
+resource "azurerm_network_security_group" "fa-nsg" {
+  name                = "nsg-fa-aiops_terraform"
+  location            = var.location
+  resource_group_name = var.resource_group_name
+
+  security_rule {
+    name                       = "allow_inbound"
+    priority                   = 1001
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "10000-10020"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+}
