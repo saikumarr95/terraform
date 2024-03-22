@@ -14,7 +14,7 @@ output "azure_webapp_name" {
 */
 
 output "private_endpoint_id" {  
-  value = azurerm_private_endpoint.storage_account_private_endpoint.id  
+  value = azurerm_private_endpoint.storage_account_private_endpoint4.id  
 }  
 
 # Fetch subnet_id
