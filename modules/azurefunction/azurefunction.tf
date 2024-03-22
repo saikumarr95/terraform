@@ -41,7 +41,7 @@ resource "azurerm_linux_function_app" "function_name" {
 }
 
 #Sample function
-
+/*
 resource "azurerm_function_app_function" "sample_function" {
   name            = "sample-function-app-function"
   function_app_id = azurerm_linux_function_app.function_name.id
@@ -70,6 +70,7 @@ resource "azurerm_function_app_function" "sample_function" {
   })
 }
 
+*/
 
 
 # vnet connection
