@@ -100,3 +100,5 @@ resource "azurerm_function_app_function" "sample_function" {
     ]
   })
 }
+
+*/
