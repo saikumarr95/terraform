@@ -40,6 +40,38 @@ resource "azurerm_linux_function_app" "function_name" {
     }
 }
 
+#Sample function
+
+resource "azurerm_function_app_function" "sample_function" {
+  name            = "sample-function-app-function"
+  function_app_id = azurerm_linux_function_app.function_name.id
+  language        = "Python"
+  test_data = jsonencode({
+    "name" = "Azure"
+  })
+  config_json = jsonencode({
+    "bindings" = [
+      {
+        "authLevel" = "function"
+        "direction" = "in"
+        "methods" = [
+          "get",
+          "post",
+        ]
+        "name" = "req"
+        "type" = "httpTrigger"
+      },
+      {
+        "direction" = "out"
+        "name"      = "$return"
+        "type"      = "http"
+      },
+    ]
+  })
+}
+
+
+
 # vnet connection
 /*
 resource "azurerm_app_service_virtual_network_swift_connection" "example" {
