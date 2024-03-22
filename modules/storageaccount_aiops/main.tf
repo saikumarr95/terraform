@@ -11,6 +11,7 @@ resource "azurerm_storage_account" "appstore" {
   account_replication_type = "LRS"
   account_kind = "StorageV2"
   public_network_access_enabled = false
+  allow_nested_items_to_be_public = false
  
 }
 
