@@ -39,4 +39,15 @@ module "storage_account" {
   location            = var.location
   subnet_id           = var.subnet_id
   environment         = "staging"
+
+ module "static_web_app" {
+  source = "./modules/static_web_app"  # update with the actual path to the module
+
+  name                 = "my_static_web_app"
+  resource_group_name  = "my_resource_group"
+  location             = "West US"
+  azure_devops_token   = "my_azure_devops_token"
+  repository_url       = "https://dev.azure.com/my_organization/my_project/_git/my_repository"
+  branch               = "main"
+} 
 }
