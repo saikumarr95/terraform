@@ -21,3 +21,12 @@ module "private_endpoint" {
   resource_id                 = azurerm_storage_account.appstore.id
   subresource_name            = "blob"
 }
+
+module "search_service" {
+  source = "./modules/azure-search" // path to your module
+
+  search_service_name = random_string.azurerm_search_service_name.result
+  resource_group_name = var.resource_group_name
+  location            = var.location
+  sku                 = var.sku
+}
