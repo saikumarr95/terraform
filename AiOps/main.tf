@@ -29,4 +29,14 @@ module "search_service" {
   resource_group_name = var.resource_group_name
   location            = var.location
   sku                 = var.sku
+  
+}
+
+module "storage_account" {
+  source = "./modules/storage_account"  # update with the actual path to the module
+
+  resource_group_name = "my_resource_group"
+  location            = "West US"
+  subnet_id           = "my_subnet_id"
+  environment         = "staging"
 }
