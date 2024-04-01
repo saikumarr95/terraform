@@ -10,7 +10,7 @@ module "azure_webapp" {
   ip_restrictions        = var.ip_restrictions
 }
 
-module "private_endpoint" {
+module "private_endpoint_azure_webapp" {
   source = "./modules/private_endpoint"
 
   private_endpoint_name       = var.private_endpoint_name
