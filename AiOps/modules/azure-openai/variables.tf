@@ -1,29 +1,29 @@
-variable "resource_group_name" {
-  type=string
-  description = "This defines the Azure open ai resource group name"
-}
-variable "location" {
-  type=string
-  description = "This defines theopen ai location of resource"
-}
 variable "azure_openai_service_name" {
-  type=string
-  description = "This defines the open ai service name."
-}
-variable "azure_openai_deployment_name" {
-  type=string
-  description = "This defines the open ai service name."
-}
-variable "azure_openai_kind" {
-  type=string
-  description = "This defines the open ai service Kind."
-}
-variable "sku_name" {
-  description = "The pricing tier of the search service you want to create (for example, basic or standard)."
-  default     = "S0"
+  description = "The name of the Azure OpenAI service"
   type        = string
-  validation {
-    condition     = contains(["S0", "S1"], var.sku_name)
-    error_message = "The sku must be one of the following values: S0,S1."
-  }
+}
+
+variable "location" {
+  description = "The location where the Azure OpenAI service should be created"
+  type        = string
+}
+
+variable "resource_group_name" {
+  description = "The name of the resource group in which to create the Azure OpenAI service"
+  type        = string
+}
+
+variable "azure_openai_kind" {
+  description = "The kind of the Azure OpenAI service"
+  type        = string
+}
+
+variable "sku_name" {
+  description = "The SKU name for the Azure OpenAI service"
+  type        = string
+}
+
+variable "azure_openai_deployment_name" {
+  description = "The name of the Azure OpenAI deployment"
+  type        = string
 }
