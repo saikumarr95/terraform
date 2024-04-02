@@ -1,0 +1,68 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger: none
+
+# Self Hosted Agent Pool
+pool:
+  name: Azure EUS
+
+steps:
+
+- task: JasonBJohnson.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller@1
+  displayName: "Install Terraform"
+  inputs:
+    terraformVersion: "latest"
+
+- task: TerraformCLI@1
+  displayName: Terraform Initalization via SPN
+  inputs:
+    command: 'init'
+    backendType: 'azurerm'
+    backendServiceArm: 'azspn-cpu-cis-aiops-corp-nonprod-001'
+    environmentServiceName: 'azspn-cpu-cis-aiops-corp-nonprod-001'
+    backendAzureRmSubscriptionId: '23901823-e0ae-47b1-b16e-f3897302cca3'
+    providerAzureRmSubscriptionId: '6507a1cf-15d4-4a96-93b8-9680912007d5'
+    backendAzureRmResourceGroupName: 'rg-mhub-tfstate-uks'
+    backendAzureRmStorageAccountName: 'stmhubtfstateuks '
+    backendAzureRmContainerName: 'cpu-cis-aiops-corp-nonprod-001'
+    backendAzureRmKey: 'terraformpipeline.tfstate'
+    allowTelemetryCollection: true
+
+- task: TerraformCLI@1
+  displayName: Terraform Validate
+  inputs:
+    command: 'validate'
+    environmentServiceName: 'azspn-cpu-cis-aiops-corp-nonprod-001'
+    providerAzureRmSubscriptionId: '6507a1cf-15d4-4a96-93b8-9680912007d5'
+    allowTelemetryCollection: true
+
+- task: TerraformCLI@1
+  displayName: Terraform Plan Preflight
+  inputs:
+    command: 'plan'
+    environmentServiceName: 'azspn-cpu-cis-aiops-corp-nonprod-001'
+    providerAzureRmSubscriptionId: '6507a1cf-15d4-4a96-93b8-9680912007d5'
+    commandOptions: '-input=false'
+    allowTelemetryCollection: true
+
+- task: TerraformCLI@1
+  displayName: Terraform Apply Build Infrastructure on Azure
+  inputs:
+    command: 'apply'
+    environmentServiceName: 'azspn-cpu-cis-aiops-corp-nonprod-001'
+    providerAzureRmSubscriptionId: '6507a1cf-15d4-4a96-93b8-9680912007d5'
+    commandOptions: '-input=false'
+    allowTelemetryCollection: true   
+
+##
+#Stage for Destroy the resource created via Pipeline.
+#- task: TerraformCLI@1
+#  inputs:
+#    command: 'to-destroy-stage'
+#    environmentServiceName: 'azspn-cpu-cis-aiops-corp-nonprod-001'
+#    providerAzureRmSubscriptionId: '6507a1cf-15d4-4a96-93b8-9680912007d5'
+#    commandOptions: '-input=true'
+#    allowTelemetryCollection: true   
