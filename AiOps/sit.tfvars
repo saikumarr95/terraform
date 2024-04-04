@@ -22,3 +22,16 @@ static_web_app = {
   repository_url = "https://dev.azure.com/my-repo"
   branch = "main"
 }
+
+aiops = {
+  serviceplan_name = "my-service-plan"
+  resource_group_name = "my-resource-group"
+  location = "West US"
+  os_type = "Linux"
+  webapp_name = "my-web-app"
+  common_tags = {
+    ManagedBy   = "Terraform"
+    Environment = "Production"
+  }
+  ip_restrictions = []
+}
