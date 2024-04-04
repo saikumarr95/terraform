@@ -34,4 +34,15 @@ aiops = {
     Environment = "Production"
   }
   ip_restrictions = []
+
+}
+
+private_endpoint = {
+  name = "my-private-endpoint"
+  location = "West US"
+  resource_group_name = "my-resource-group"
+  subnet_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1"
+  private_service_connection = "my-private-service-connection"
+  resource_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1"
+  subresource_name = "my-subresource"
 }
