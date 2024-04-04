@@ -14,4 +14,11 @@ azure_openai = {
   deployment_name = "my-deployment"
 }
 
-
+static_web_app = {
+  name = "my-static-web-app"
+  resource_group_name = "my-resource-group"
+  location = "West US"
+  azure_devops_token = "my-azure-devops-token"
+  repository_url = "https://dev.azure.com/my-repo"
+  branch = "main"
+}
