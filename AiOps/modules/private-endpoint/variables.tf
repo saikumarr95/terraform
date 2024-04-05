@@ -1,5 +1,6 @@
-variable "private_endpoint" {
-  type = object({
+
+variable "private_endpoints" {
+  type = list(object({
     name = string
     location = string
     resource_group_name = string
@@ -7,6 +8,6 @@ variable "private_endpoint" {
     private_service_connection = string
     resource_id = string
     subresource_name = string
-  })
-  description = "This defines the Azure Private Endpoint configuration."
+  }))
+  description = "This defines the Azure Private Endpoint configurations."
 }
