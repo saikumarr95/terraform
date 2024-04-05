@@ -10,17 +10,19 @@ module "azure_webapp" {
   ip_restrictions        = var.ip_restrictions
 }
 
-module "private_endpoint_azure_webapp" {
+ module "private_endpoint_azure_webapp" {
   source = "./modules/private_endpoint"
+  for_each = { for endpoint in var.private_endpoints : endpoint.name => endpoint }
 
-  private_endpoint_name       = var.private_endpoint_name
-  location                    = var.location
-  resource_group_name         = var.resource_group_name
-  subnet_id                   = var.subnet_id
-  private_service_connection  = var.private_service_connection
-  resource_id                 = azurerm_storage_account.appstore.id
-  subresource_name            = "blob"
+  private_endpoint_name       = each.value.name
+  location                    = each.value.location
+  resource_group_name         = each.value.resource_group_name
+  subnet_id                   = each.value.subnet_id
+  private_service_connection  = each.value.private_service_connection
+  resource_id                 = each.value.resource_id
+  subresource_name            = each.value.subresource_name
 }
+
 
 module "search_service" {
   source = "./modules/azure-search" // path to your module
