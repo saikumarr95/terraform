@@ -103,17 +103,27 @@ private_endpoints = [
   // ... add more endpoint configurations here ...
 ]
 
+azure_storage_accounts = [
+  {
+    name                 = "storage-account1"
+    resource_group_name  = "resource-group1"
+    location             = "location1"
+    subnet_id            = "subnet-id1"
+    environment          = "environment1"
+    private_endpoint_name  = "private-endpoint1"
+    private_service_connection = "service-connection1"
+    subresource_name       = "subresource-name1"
+  },
+  {
+    name                 = "storage-account2"
+    resource_group_name  = "resource-group2"
+    location             = "location2"
+    subnet_id            = "subnet-id2"
+    environment          = "environment2"
+    private_endpoint_name  = "private-endpoint2"
+    private_service_connection = "service-connection2"
+    subresource_name       = "subresource-name2"
+  },
+  // ... add more storage account configurations here ...
+]
 
-variable "storage_account" {
-  type = object({
-    azure_resource_name = string
-    resource_group_name = string
-    location = string
-    subnet_id = string
-    environment = string
-  })
-  description = "This defines the Azure Storage Account configuration."
-  default = {
-    environment = "development"
-  }
-}
