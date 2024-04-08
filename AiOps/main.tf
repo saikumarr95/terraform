@@ -24,15 +24,33 @@ module "azure_webapp" {
 }
 
 
-module "search_service" {
-  source = "./modules/azure-search" // path to your module
+#definiton for create multiple azure search services and attaching private endpoint to same
 
-  search_service_name = random_string.azurerm_search_service_name.result
-  resource_group_name = var.resource_group_name
-  location            = var.location
-  sku                 = var.sku
-  
+module "search_service" {
+  source = "./modules/azure-search"  // adjust this path to point to your module
+
+  for_each = { for service in var.azure_search_services : service.search_service_name => service }
+
+  search_service_name = each.value.search_service_name
+  resource_group_name = each.value.resource_group_name
+  location            = each.value.location
+  sku                 = each.value.sku
 }
+
+module "private_endpoint_search_service" {
+  source = "./modules/private_endpoint"
+
+  for_each = { for service in var.azure_search_services : service.search_service_name => service }
+
+  private_endpoint_name       = each.value.private_endpoint_name
+  location                    = each.value.location
+  resource_group_name         = each.value.resource_group_name
+  subnet_id                   = each.value.subnet_id
+  private_service_connection  = each.value.private_service_connection
+  resource_id                 = module.search_service[each.key].id
+  subresource_name            = each.value.subresource_name
+}
+
 
 module "storage_account" {
   source = "./modules/storage_account"  # update with the actual path to the module
