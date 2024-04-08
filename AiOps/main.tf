@@ -111,4 +111,31 @@ module "private_endpoint_static_web_app" {
   subresource_name            = each.value.subresource_name
 }
 
+#Definiiton for azure openai
+
+
+module "azure_openai" {
+  source = "./modules/azure_openai"  // adjust this to the actual path of your module
+
+  for_each = { for ai in var.azure_openai : ai.service_name => ai }
+
+  azure_openai_service_name = each.value.service_name
+  location = each.value.location
+  resource_group_name = each.value.resource_group_name
+  azure_openai_kind = each.value.kind
+  sku_name = each.value.sku_name
+  azure_openai_deployment_name = each.value.deployment_name
+}
+
+module "private_endpoint" {
+  source = "./modules/private_endpoint"  // adjust this to the actual path of your private endpoint module
+
+  for_each = { for ai in var.azure_openai : ai.service_name => ai }
+
+  name                = each.value.private_endpoint_name
+  location            = each.value.location
+  resource_group_name = each.value.resource_group_name
+  subnet_id           = each.value.subnet_id
+  private_connection_resource_id = module.azure_openai[each.key].azure_open_ai.id
+}
 
