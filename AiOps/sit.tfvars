@@ -127,3 +127,29 @@ azure_storage_accounts = [
   // ... add more storage account configurations here ...
 ]
 
+#Defnition for openai
+
+azure_openai = [
+  {
+    service_name = "openai-service1"
+    location = "location1"
+    resource_group_name = "resource-group1"
+    kind = "kind1"
+    sku_name = "sku-name1"
+    deployment_name = "deployment-name1"
+    private_endpoint_name = "private-endpoint1"
+    subnet_id = "subnet-id1"
+  },
+  {
+    service_name = "openai-service2"
+    location = "location2"
+    resource_group_name = "resource-group2"
+    kind = "kind2"
+    sku_name = "sku-name2"
+    deployment_name = "deployment-name2"
+    private_endpoint_name = "private-endpoint2"
+    subnet_id = "subnet-id2"
+  },
+  // ... add more openai configurations here ...
+]
+
