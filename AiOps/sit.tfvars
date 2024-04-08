@@ -31,14 +31,32 @@ azure_webapps = [
 ]
 
 
+# varibale definiton to create multiple azure aearch srvices and attaching private endpoint to the same
 
+azure_search_services = [
+  {
+    search_service_name = "search-service1"
+    resource_group_name = "resource-group1"
+    location            = "location1"
+    sku                 = "sku1"
+    private_endpoint_name  = "private-endpoint1"
+    subnet_id              = "subnet-id1"
+    private_service_connection = "service-connection1"
+    subresource_name       = "subresource-name1"
+  },
+  {
+    search_service_name = "search-service2"
+    resource_group_name = "resource-group2"
+    location            = "location2"
+    sku                 = "sku2"
+    private_endpoint_name  = "private-endpoint2"
+    subnet_id              = "subnet-id2"
+    private_service_connection = "service-connection2"
+    subresource_name       = "subresource-name2"
+  },
+  // ... add more search service configurations here ...
+]
 
-azure_search = {
-  resource_group_name = "my-resource-group"
-  location = "West US"
-  service_name = "my-search-service"
-  sku = "standard"
-}
 
 azure_openai = {
   service_name = "my-openai-service"
