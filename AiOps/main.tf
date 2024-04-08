@@ -52,18 +52,38 @@ module "private_endpoint_search_service" {
 }
 
 
-module "storage_account" {
-  source = "./modules/storage_account"  # update with the actual path to the module
+#definition for storage account 
 
-  resource_group_name = var.resource_group_name
-  location            = var.location
-  subnet_id           = var.subnet_id
-  environment         = "staging"
+
+module "storage_account" {
+  source = "./modules/storage_account"  // adjust this path to point to your module
+
+  for_each = { for account in var.azure_storage_accounts : account.name => account }
+
+  name                 = each.value.name
+  resource_group_name  = each.value.resource_group_name
+  location             = each.value.location
+  subnet_id            = each.value.subnet_id
+  environment          = each.value.environment
+}
+
+module "private_endpoint_storage_account" {
+  source = "./modules/private_endpoint"
+
+  for_each = { for account in var.azure_storage_accounts : account.name => account }
+
+  private_endpoint_name       = each.value.private_endpoint_name
+  location                    = each.value.location
+  resource_group_name         = each.value.resource_group_name
+  subnet_id                   = each.value.subnet_id
+  private_service_connection  = each.value.private_service_connection
+  resource_id                 = module.storage_account[each.key].id
+  subresource_name            = each.value.subresource_name
 }
 
 
  #definition to craete multiple azure static webapp and then attach private endpoints to them
- 
+
 module "static_web_app" {
   source = "./modules/static_web_app"  // adjust this path to point to your module
 
