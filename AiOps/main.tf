@@ -59,15 +59,36 @@ module "storage_account" {
   location            = var.location
   subnet_id           = var.subnet_id
   environment         = "staging"
-
- module "static_web_app" {
-  source = "./modules/static_web_app"  # update with the actual path to the module
-
-  name                 = var.name
-  resource_group_name  = var.resource_group_name
-  location             = var.location
-  azure_devops_token   = var.github_token
-  repository_url       = "https://dev.azure.com/my_organization/my_project/_git/my_repository"
-  branch               = "main"
-} 
 }
+
+
+ #definition to craete multiple azure static webapp and then attach private endpoints to them
+ 
+module "static_web_app" {
+  source = "./modules/static_web_app"  // adjust this path to point to your module
+
+  for_each = { for app in var.azure_static_web_apps : app.name => app }
+
+  name                 = each.value.name
+  resource_group_name  = each.value.resource_group_name
+  location             = each.value.location
+  azure_devops_token   = each.value.azure_devops_token
+  repository_url       = each.value.repository_url
+  branch               = each.value.branch
+}
+
+module "private_endpoint_static_web_app" {
+  source = "./modules/private_endpoint"
+
+  for_each = { for app in var.azure_static_web_apps : app.name => app }
+
+  private_endpoint_name       = each.value.private_endpoint_name
+  location                    = each.value.location
+  resource_group_name         = each.value.resource_group_name
+  subnet_id                   = each.value.subnet_id
+  private_service_connection  = each.value.private_service_connection
+  resource_id                 = module.static_web_app[each.key].id
+  subresource_name            = each.value.subresource_name
+}
+
+
