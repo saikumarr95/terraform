@@ -3,7 +3,7 @@
 azure_webapps = [
   {
     aiops_serviceplan_name = "serviceplan1"
-    resource_group_name    = "resource-group1"
+    resource_group_name    = rg-AIOps-Corp-UAT-Connectivity-eus
     location               = "location1"
     os_type                = "os-type1"
     aiops_webapp_name      = "webapp1"
