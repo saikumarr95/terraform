@@ -35,71 +35,63 @@ azure_search_services = [
 ]
 
 
-azure_openai = {
-  service_name = openai-aiops-uat-001-eastus
-  location = eastus
-  resource_group_name = rg-AIOps-Corp-UAT-Connectivity-eus
-  kind = OpenAI
-  sku_name = s0
-  deployment_name = openai-deployment-aiops-uat-001-eastus
-}
+#openai definition 
 
-static_web_app = {
-  name = "my-static-web-app"
-  resource_group_name = "my-resource-group"
-  location = "West US"
-  azure_devops_token = "my-azure-devops-token"
-  repository_url = "https://dev.azure.com/my-repo"
-  branch = "main"
-}
-
-aiops = {
-  serviceplan_name = "my-service-plan"
-  resource_group_name = "my-resource-group"
-  location = "West US"
-  os_type = "Linux"
-  webapp_name = "my-web-app"
-  common_tags = {
-    ManagedBy   = "Terraform"
-    Environment = "Production"
-  }
-  ip_restrictions = []
-
-}
-
-private_endpoints = [
+azure_openai = [
   {
-    name = "endpoint1"
-    location = "location1"
-    resource_group_name = "my-resource-group1"
-    subnet_id = "subnet-id1"
-    private_service_connection = "service-connection1"
-    resource_id = "resource-id1"
-    subresource_name = "subresource-name1"
-  },
-  // ... add more endpoint configurations here ...
+    service_name = openai-aiops-uat-001-eastus
+    location = eastus
+    resource_group_name = rg-AIOps-Corp-UAT-Connectivity-eus
+    kind = OpenAI
+    sku_name = s0
+    deployment_name = openai-deployment-aiops-uat-001-eastus
+    private_endpoint_name = pe-openai-aiops-uat-eastus
+    subnet_id =
+  }
+  
+  // ... add more openai configurations here ...
 ]
+#defintion for static web app
+
+azure_static_web_apps = [
+  {
+    name = swa-aiops-uat-001-eastus
+    resource_group_name = rg-AIOps-Corp-UAT-Connectivity-eus
+    location = eastus
+    repository_url = https://CTO-Global@dev.azure.com/CTO-Global/CTO%20Engineering/_git/ESLZ.AIOPS-UI
+    branch = uat
+    sku = "standard"
+    private_endpoint_name = pe-swa-aiops-uat-001-eastus
+    subnet_id =
+    private_service_connection = psc-swa-aiops-uat-001-eastus
+    subresource_name = "sites"
+  }
+  
+  // ... add more static web app configurations here ...
+]
+
+#defintion for storage account
 
 azure_storage_accounts = [
   {
-    name                 = "storage-account1"
-    resource_group_name  = "resource-group1"
-    location             = "location1"
-    subnet_id            = "subnet-id1"
-    environment          = "environment1"
-    private_endpoint_name  = "private-endpoint1"
-    private_service_connection = "service-connection1"
-    subresource_name       = "subresource-name1"
+    name                 = staaiopsuatwa
+    resource_group_name  = rg-AIOps-Corp-UAT-Connectivity-eus
+    location             =eastus
+    subnet_id            = 
+    environment          = uat
+    private_endpoint_name  = pe-sta-aiops-uat-eastus-001
+    private_service_connection = psc-sta-aiops-uat-001-eastus
+    subresource_name       = blob
   },
   {
-    name                 = "storage-account2"
-    resource_group_name  = "resource-group2"
-    location             = "location2"
+    name                 = staaiopsuatswa
+    resource_group_name  = rg-AIOps-Corp-UAT-Connectivity-eus
+    location             = eastus
     subnet_id            = "subnet-id2"
-    environment          = "environment2"
-    private_endpoint_name  = "private-endpoint2"
-    private_service_connection = "service-connection2"
-    subresource_name       = "subresource-name2"
+    environment          = uat
+    private_endpoint_name  = pe-sta-aiops-uat-eastus-002
+    private_service_connection = psc-sta-aiops-uat-002-eastus
+    subresource_name       = blob
   },
   // ... add more storage account configurations here ...
 ]
