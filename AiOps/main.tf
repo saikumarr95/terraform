@@ -95,6 +95,7 @@ module "static_web_app" {
   azure_devops_token   = each.value.azure_devops_token
   repository_url       = each.value.repository_url
   branch               = each.value.branch
+  sku                  = each.value.sku
 }
 
 module "private_endpoint_static_web_app" {
