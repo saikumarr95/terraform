@@ -2,16 +2,15 @@
 
 azure_webapps = [
   {
-    aiops_serviceplan_name = 
+    aiops_serviceplan_name = sp-wa-aiops-uat-001-eastus
     resource_group_name    = rg-AIOps-Corp-UAT-Connectivity-eus
     location               = eastus
     os_type                = Linux
     aiops_webapp_name      = wa-aiops-uat-001-eastus
     common_tags            = { Created by = Ebin Thomas, Env = UAT  }
-    private_endpoint_name  = 
-    subnet_id              = "subnet-id1"
-    private_service_connection = "service-connection1"
-    subresource_name       = "subresource-name1"
+    private_endpoint_name  = PE-UAT-AIOPS-001
+    private_service_connection = psc-wa-iops-uat-001-eastus
+    subresource_name       = sites
   }
   // ... add more webapp configurations here ...
 ]
@@ -29,17 +28,8 @@ azure_search_services = [
     subnet_id              = "subnet-id1"
     private_service_connection = "service-connection1"
     subresource_name       = "subresource-name1"
-  },
-  {
-    search_service_name = "search-service2"
-    resource_group_name = "resource-group2"
-    location            = "location2"
-    sku                 = "sku2"
-    private_endpoint_name  = "private-endpoint2"
-    subnet_id              = "subnet-id2"
-    private_service_connection = "service-connection2"
-    subresource_name       = "subresource-name2"
-  },
+  }
+  
   // ... add more search service configurations here ...
 ]
 
