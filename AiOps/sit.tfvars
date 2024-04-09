@@ -8,7 +8,8 @@ azure_webapps = [
     os_type                = Linux
     aiops_webapp_name      = wa-aiops-uat-001-eastus
     common_tags            = { Created by = Ebin Thomas, Env = UAT  }
-    private_endpoint_name  = PE-UAT-AIOPS-001
+    subnet_id              = 
+    private_endpoint_name  = PE-WA-UAT-AIOPS-001
     private_service_connection = psc-wa-iops-uat-001-eastus
     subresource_name       = sites
   }
@@ -20,14 +21,14 @@ azure_webapps = [
 
 azure_search_services = [
   {
-    search_service_name = "search-service1"
-    resource_group_name = "resource-group1"
-    location            = "location1"
+    search_service_name = swa-aiops-uat-001-eastus
+    resource_group_name = rg-AIOps-Corp-UAT-Connectivity-eus
+    location            = eastus
     sku                 = "sku1"
-    private_endpoint_name  = "private-endpoint1"
-    subnet_id              = "subnet-id1"
-    private_service_connection = "service-connection1"
-    subresource_name       = "subresource-name1"
+    private_endpoint_name  = PE-SWA-UAT-AIOPS-001
+    subnet_id              = 
+    private_service_connection =  psc-Swa-iops-uat-001-eastus
+    subresource_name       = staticsites
   }
   
   // ... add more search service configurations here ...
@@ -35,12 +36,12 @@ azure_search_services = [
 
 
 azure_openai = {
-  service_name = "my-openai-service"
-  location = "West US"
-  resource_group_name = "my-resource-group"
-  kind = "my-kind"
-  sku_name = "my-sku"
-  deployment_name = "my-deployment"
+  service_name = openai-aiops-uat-001-eastus
+  location = eastus
+  resource_group_name = rg-AIOps-Corp-UAT-Connectivity-eus
+  kind = OpenAI
+  sku_name = s0
+  deployment_name = openai-deployment-aiops-uat-001-eastus
 }
 
 static_web_app = {
