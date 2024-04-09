@@ -7,8 +7,7 @@ azure_webapps = [
     location               = eastus
     os_type                = Linux
     aiops_webapp_name      = wa-aiops-uat-001-eastus
-    common_tags            = { "tag1" = "value1", "tag2" = "value2" }
-    ip_restrictions        = [ "ip1", "ip2" ]
+    common_tags            = { Created by = Ebin Thomas, Env = UAT  }
     private_endpoint_name  = 
     subnet_id              = "subnet-id1"
     private_service_connection = "service-connection1"
